@@ -26,7 +26,6 @@ Install the development version of r2dii.utils with something like this:
 
 ```r
 # install.packages("devtools")
-
 devtools::install_github("2DegreesInvesting/r2dii.utils")
 ```
 
