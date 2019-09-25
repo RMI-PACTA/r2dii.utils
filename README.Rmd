@@ -34,3 +34,4 @@ devtools::install_github("2DegreesInvesting/r2dii.utils")
 ```{r example}
 library(r2dii.utils)
 ```
+
