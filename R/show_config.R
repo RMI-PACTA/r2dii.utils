@@ -81,9 +81,9 @@ default_config <- function() {
 #' @export
 example_config <- function (path = NULL) {
   if (is.null(path)) {
-    fs::dir_ls(system.file(package = "r2dii.dataraw"), glob = "*.yml")
+    fs::dir_ls(system.file(package = "r2dii.utils"), glob = "*.yml")
   } else {
-    system.file(path, package = "r2dii.dataraw", mustWork = TRUE)
+    system.file(path, package = "r2dii.utils", mustWork = TRUE)
   }
 }
 

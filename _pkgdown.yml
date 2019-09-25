@@ -32,3 +32,24 @@ navbar:
 
     - text: 2dii
       href: https://2degreesinvesting.github.io/r2dii/index.html
+
+
+
+reference:
+
+  - title: Handle the configuration file
+    contents:
+      - has_concept("functions to deal with configuration files")
+
+  - title: Paths pointing to 2dii's dropbox-folder
+    contents:
+      - has_concept("functions to output paths depending on a configuration file")
+      - has_concept("functions to output 2dii paths")
+
+  - title: Access configuration parameters
+    contents:
+      - has_concept("functions to get specific 2dii configuration parameters")
+
+  - title: Miscellaneous
+    contents:
+      - has_concept("miscellaneous utility functions")

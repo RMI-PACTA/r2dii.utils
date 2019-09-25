@@ -23,6 +23,4 @@ devtools::install_github("2DegreesInvesting/r2dii.utils")
 
 ## Example
 
-``` r
-library(r2dii.utils)
-```
+[Go to examples](https://2degreesinvesting.github.io/r2dii/#examples)

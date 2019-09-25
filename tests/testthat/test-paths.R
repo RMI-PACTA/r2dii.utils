@@ -1,7 +1,7 @@
 context("paths")
 
 skip_if_not_in_mauro_pc <- function() {
-  if (!stringr::str_detect(fs::path_home(), "Mauro")) {
+  if (!grepl("Mauro", fs::path_home())) {
     skip("Not in Mauro's PC")
   }
 }

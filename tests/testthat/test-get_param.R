@@ -59,7 +59,7 @@ test_that("FIN.DATA.PATH uses `r2dii.dataraw_config` option", {
   config <- example_config("config-toy.yml")
   withr::local_options(list(r2dii.dataraw_config = config))
 
-  fin <- fs::path_file(r2dii.dataraw::FIN.DATA.PATH())
+  fin <- fs::path_file(FIN.DATA.PATH())
   expect_equal(fin, "2018Q3")
 })
 

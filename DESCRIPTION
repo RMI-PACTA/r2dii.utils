@@ -19,11 +19,16 @@ BugReports:
 Imports: 
     glue,
     rlang,
-    usethis
+    usethis,
+    readr,
+    config,
+    dplyr,
+    purrr
 Suggests: 
     fs,
     pkgdown,
-    testthat
+    testthat,
+    withr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
