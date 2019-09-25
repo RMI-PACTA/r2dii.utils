@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • r2dii.utils</title>
+<title>Show a configuration file — show_config • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,9 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Show a configuration file — show_config" />
+<meta property="og:description" content="Show a configuration file" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,29 +117,74 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Show a configuration file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/show_config.R'><code>R/show_config.R</code></a></small>
+    <div class="hidden name"><code>show_config.Rd</code></div>
     </div>
 
-    <div id="r2dii-utils-0-0-0-9000" class="section level1">
-<h1 class="page-header">
-<a href="#r2dii-utils-0-0-0-9000" class="anchor"></a>r2dii.utils 0.0.0.9000</h1>
-<ul>
-<li><p>New functions to handle paths, to handle the configuration file, and miscellaneous.</p></li>
-<li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Show a configuration file</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>show_config</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='default_config.html'>get_config</a></span>(), <span class='no'>...</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>A string giving the path to a configuration file. <code>NULL</code> defaults
+to <code><a href='default_config.html'>get_config()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Other arguments passed to <code><a href='https://readr.tidyverse.org/reference/read_lines.html'>readr::read_lines()</a></code>, e.g. <code>n_max</code>.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Prints to the console the configuration file.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='FINANCIAL.TIMESTAMP.html'>FINANCIAL.TIMESTAMP</a></p>
+<p>Other functions to deal with configuration files: <code><a href='default_config.html'>default_config</a></code>,
+  <code><a href='edit_config.html'>edit_config</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># A configuration file stored in the package</span>
+<span class='no'>path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>default_config</a></span>()
+<span class='fu'>show_config</span>(<span class='no'>path</span>, <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; default:
+#&gt;   Methodology:
+#&gt;     HasBookValue: FALSE # ignore
+#&gt;     HasRISK: TRUE # ignore a flag specifying if the physical risk assessment should be done
+#&gt;     HasMAP: TRUE # flag to specify if map data (production per country) should be prepared
+#&gt;     HasSB: FALSE # ignore for now
+#&gt; 
+#&gt;   TimeStamps:
+#&gt;     # setting the dates of the data-input for financial and asset-level data: this identifies the input files
+#&gt;     FinancialData.Timestamp: 2018Q4 # specifies the Financial data sourcing date ie from which date the financial information is taken</div><div class='input'>
+<span class='co'># Create a new configuration file to show a more general case</span>
+<span class='no'>config_file</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>glue</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue</a></span>(<span class='st'>"
+  default:
+    a_field: a_value
+"</span>)
+<span class='no'>config_path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
+<span class='kw pkg'>readr</span><span class='kw ns'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_lines.html'>write_lines</a></span>(<span class='no'>config_file</span>, <span class='no'>config_path</span>)
+
+<span class='fu'>show_config</span>(<span class='no'>config_path</span>)</div><div class='output co'>#&gt;   default:
+#&gt;     a_field: a_value</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#r2dii-utils-0-0-0-9000">0.0.0.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 

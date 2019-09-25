@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • r2dii.utils</title>
+<title>Edit the default configuration file — edit_config • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,9 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Edit the default configuration file — edit_config" />
+<meta property="og:description" content="Edit the default configuration file" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,29 +117,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Edit the default configuration file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/show_config.R'><code>R/show_config.R</code></a></small>
+    <div class="hidden name"><code>edit_config.Rd</code></div>
     </div>
 
-    <div id="r2dii-utils-0-0-0-9000" class="section level1">
-<h1 class="page-header">
-<a href="#r2dii-utils-0-0-0-9000" class="anchor"></a>r2dii.utils 0.0.0.9000</h1>
-<ul>
-<li><p>New functions to handle paths, to handle the configuration file, and miscellaneous.</p></li>
-<li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Edit the default configuration file</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>edit_config</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='default_config.html'>get_config</a></span>())</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>A string giving the path to a configuration file. <code>NULL</code> defaults
+to <code><a href='default_config.html'>get_config()</a></code>.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Invisible <code><a href='default_config.html'>default_config()</a></code>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='FINANCIAL.TIMESTAMP.html'>FINANCIAL.TIMESTAMP</a></p>
+<p>Other functions to deal with configuration files: <code><a href='default_config.html'>default_config</a></code>,
+  <code><a href='show_config.html'>show_config</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Use only interactively</span>
+<span class='co'># edit_config(example_config("config-toy.yml"))</span>
+
+<span class='co'># Now you should see something like this:</span>
+<span class='fu'><a href='show_config.html'>show_config</a></span>(<span class='fu'><a href='default_config.html'>example_config</a></span>(<span class='st'>"config-toy.yml"</span>))</div><div class='output co'>#&gt; default:
+#&gt;   Expect:
+#&gt;    param_a: a
+#&gt;    param_1: 1
+#&gt;    param_true: TRUE
+#&gt;    param_false: FALSE
+#&gt;    param_unset:
+#&gt;   TimeStamps:
+#&gt;     ALD.Timestamp: 3333
+#&gt;     FinancialData.Timestamp: 2018Q3
+#&gt; </div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#r2dii-utils-0-0-0-9000">0.0.0.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 
