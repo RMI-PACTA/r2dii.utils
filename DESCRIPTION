@@ -16,6 +16,10 @@ License: GPL-3 + file LICENSE
 URL: https://github.com/2DegreesInvesting/r2dii.utils
 BugReports: 
     https://github.com/2DegreesInvesting/r2dii.utils/issues
+Imports: 
+    glue,
+    rlang,
+    usethis
 Suggests: 
     fs,
     pkgdown,
@@ -24,6 +28,3 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Imports: 
-    glue,
-    rlang
