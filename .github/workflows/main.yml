@@ -36,3 +36,4 @@ jobs:
         env:
           BUILD_DIR: docs
           GH_PAT: ${{ secrets.GH_PAT }}
+
