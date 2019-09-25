@@ -18,8 +18,12 @@ BugReports:
     https://github.com/2DegreesInvesting/r2dii.utils/issues
 Suggests: 
     fs,
-    pkgdown
+    pkgdown,
+    testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+Imports: 
+    glue,
+    rlang

@@ -1,0 +1,4 @@
+default:
+  TimeStamps:
+    FinancialData.Timestamp: 2019Q2
+

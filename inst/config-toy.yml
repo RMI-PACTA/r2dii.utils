@@ -1,0 +1,11 @@
+default:
+  Expect:
+   param_a: a
+   param_1: 1
+   param_true: TRUE
+   param_false: FALSE
+   param_unset:
+  TimeStamps:
+    ALD.Timestamp: 3333
+    FinancialData.Timestamp: 2018Q3
+
