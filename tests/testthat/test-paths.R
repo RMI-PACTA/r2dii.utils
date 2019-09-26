@@ -7,11 +7,11 @@ skip_if_not_in_mauro_pc <- function() {
 }
 
 test_that("FIN.DATA.PATH is sensitive to config file set globally", {
-  default <- withr::with_options(list(r2dii.dataraw_config = default_config()), {
+  default <- withr::with_options(list(r2dii_config = default_config()), {
     FIN.DATA.PATH()
   })
   config <- example_config("config-toy.yml")
-  example <- withr::with_options(list(r2dii.dataraw_config = config), {
+  example <- withr::with_options(list(r2dii_config = config), {
     FIN.DATA.PATH()
   })
 

@@ -53,8 +53,7 @@ edit_config <- function(path = get_config()) {
 #' * `default_config()` returns a the path to the default configuration file
 #' that comes with this package.
 #' * `get_config()` returns a the path to the default configuration file unless
-#' you set a new path via `options(r2dii.dataraw_config =
-#' "a/path/to/your/config.yml")`.
+#' you set a new path via `options(r2dii_config = "a/path/to/your/config.yml")`.
 #' * `example_config(<path>)` returns a path to a configuration file for
 #' examples and tests; `example_config()` returns a character string with
 #' available configuration files for examples.
@@ -90,17 +89,17 @@ example_config <- function (path = NULL) {
 #' @rdname default_config
 #' @export
 #' @examples
-#' getOption("r2dii.dataraw_config")
+#' getOption("r2dii_config")
 #' get_config()
 #'
-#' restore <- options(r2dii.dataraw_config = "path/to/your/config.yml")
+#' restore <- options(r2dii_config = "path/to/your/config.yml")
 #'
-#' getOption("r2dii.dataraw_config")
+#' getOption("r2dii_config")
 #' get_config()
 #'
 #' options(restore)
-#' getOption("r2dii.dataraw_config")
+#' getOption("r2dii_config")
 #' get_config()
 get_config <- function() {
-  getOption("r2dii.dataraw_config") %||% default_config()
+  getOption("r2dii_config") %||% default_config()
 }

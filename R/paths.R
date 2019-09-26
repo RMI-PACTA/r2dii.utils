@@ -21,7 +21,7 @@
 #'
 #' # You may use your own configuration file via `options()`
 #' path_to_your_config_file <- example_config("config-toy.yml")
-#' old_options <- options(r2dii.dataraw_config = path_to_your_config_file)
+#' old_options <- options(r2dii_config = path_to_your_config_file)
 #' FIN.DATA.PATH()
 #'
 #' # Restore

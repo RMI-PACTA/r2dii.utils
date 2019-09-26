@@ -55,17 +55,17 @@ test_that("get_param with `if_null = <value>` returns <value>", {
   )
 })
 
-test_that("FIN.DATA.PATH uses `r2dii.dataraw_config` option", {
+test_that("FIN.DATA.PATH uses `r2dii_config` option", {
   config <- example_config("config-toy.yml")
-  withr::local_options(list(r2dii.dataraw_config = config))
+  withr::local_options(list(r2dii_config = config))
 
   fin <- fs::path_file(FIN.DATA.PATH())
   expect_equal(fin, "2018Q3")
 })
 
-test_that("FINANCIAL.TIMESTAMP uses `r2dii.dataraw_config` option", {
+test_that("FINANCIAL.TIMESTAMP uses `r2dii_config` option", {
   config <- example_config("config-toy.yml")
-  withr::local_options(list(r2dii.dataraw_config = config))
+  withr::local_options(list(r2dii_config = config))
 
   expect_equal(FINANCIAL.TIMESTAMP(), "2018Q3")
   expect_equal(ALD.TIMESTAMP(), 3333L)

@@ -10,13 +10,13 @@ test_that("show_config shows the correct stuff", {
 })
 
 test_that("get_config is sensitive to global options", {
-  out <- withr::with_options(list(r2dii.dataraw_config = default_config()), {
+  out <- withr::with_options(list(r2dii_config = default_config()), {
     get_config()
   })
   expect_equal(out, default_config())
 
   config <- config <- example_config("config-toy.yml")
-  out <- withr::with_options(list(r2dii.dataraw_config = config), {
+  out <- withr::with_options(list(r2dii_config = config), {
     get_config()
   })
   expect_equal(out, example_config("config-toy.yml"))

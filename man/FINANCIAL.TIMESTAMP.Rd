@@ -111,7 +111,7 @@ FINANCIAL.TIMESTAMP()
 ALD.TIMESTAMP()
 
 # Setting the path to your configuration file globally
-old_options <- options(r2dii.dataraw_config = path_to_your_config_file)
+old_options <- options(r2dii_config = path_to_your_config_file)
 # The default configuration file has now changed
 FINANCIAL.TIMESTAMP()
 ALD.TIMESTAMP()

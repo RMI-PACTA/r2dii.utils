@@ -24,7 +24,7 @@ Character string.
 \item \code{default_config()} returns a the path to the default configuration file
 that comes with this package.
 \item \code{get_config()} returns a the path to the default configuration file unless
-you set a new path via \code{options(r2dii.dataraw_config = "a/path/to/your/config.yml")}.
+you set a new path via \code{options(r2dii_config = "a/path/to/your/config.yml")}.
 \item \code{example_config(<path>)} returns a path to a configuration file for
 examples and tests; \code{example_config()} returns a character string with
 available configuration files for examples.
@@ -35,16 +35,16 @@ default_config()
 
 example_config()
 example_config("config-toy.yml")
-getOption("r2dii.dataraw_config")
+getOption("r2dii_config")
 get_config()
 
-restore <- options(r2dii.dataraw_config = "path/to/your/config.yml")
+restore <- options(r2dii_config = "path/to/your/config.yml")
 
-getOption("r2dii.dataraw_config")
+getOption("r2dii_config")
 get_config()
 
 options(restore)
-getOption("r2dii.dataraw_config")
+getOption("r2dii_config")
 get_config()
 }
 \seealso{
