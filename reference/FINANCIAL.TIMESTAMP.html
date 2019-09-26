@@ -211,7 +211,7 @@ field.</p>
 <span class='co'># The default remains the same</span>
 <span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "2018Q4"</div><div class='input'><span class='fu'>ALD.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] 201812</div><div class='input'>
 <span class='co'># Setting the path to your configuration file globally</span>
-<span class='no'>old_options</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii.dataraw_config</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)
+<span class='no'>old_options</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_config</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)
 <span class='co'># The default configuration file has now changed</span>
 <span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "2018Q3"</div><div class='input'><span class='fu'>ALD.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] 3333</div><div class='input'>
 <span class='co'># Reset options to cleanup</span>

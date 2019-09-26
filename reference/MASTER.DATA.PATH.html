@@ -163,7 +163,7 @@
 <span class='fu'>FIN.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck/00_Data/02_FinancialData/2018Q4</div><div class='input'>
 <span class='co'># You may use your own configuration file via `options()`</span>
 <span class='no'>path_to_your_config_file</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>example_config</a></span>(<span class='st'>"config-toy.yml"</span>)
-<span class='no'>old_options</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii.dataraw_config</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)
+<span class='no'>old_options</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_config</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)
 <span class='fu'>FIN.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck/00_Data/02_FinancialData/2018Q3</div><div class='input'>
 <span class='co'># Restore</span>
 <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>old_options</span>)

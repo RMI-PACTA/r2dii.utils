@@ -41,7 +41,7 @@
 default_config() returns a the path to the default configuration file
 that comes with this package.
 get_config() returns a the path to the default configuration file unless
-you set a new path via options(r2dii.dataraw_config = &quot;a/path/to/your/config.yml&quot;).
+you set a new path via options(r2dii_config = &quot;a/path/to/your/config.yml&quot;).
 example_config(&amp;lt;path&amp;gt;) returns a path to a configuration file for
 examples and tests; example_config() returns a character string with
 available configuration files for examples.
@@ -138,7 +138,7 @@ available configuration files for examples.
 <li><p><code>default_config()</code> returns a the path to the default configuration file
 that comes with this package.</p></li>
 <li><p><code>get_config()</code> returns a the path to the default configuration file unless
-you set a new path via <code><a href='https://rdrr.io/r/base/options.html'>options(r2dii.dataraw_config = "a/path/to/your/config.yml")</a></code>.</p></li>
+you set a new path via <code><a href='https://rdrr.io/r/base/options.html'>options(r2dii_config = "a/path/to/your/config.yml")</a></code>.</p></li>
 <li><p><code>example_config(&lt;path&gt;)</code> returns a path to a configuration file for
 examples and tests; <code>example_config()</code> returns a character string with
 available configuration files for examples.</p></li>
@@ -175,12 +175,12 @@ available files with <code>example_config()</code>.</p></td>
     <pre class="examples"><div class='input'><span class='fu'>default_config</span>()</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config.yml"</div><div class='input'>
 <span class='fu'>example_config</span>()</div><div class='output co'>#&gt; /home/travis/R/Library/r2dii.utils/config-toy.yml
 #&gt; /home/travis/R/Library/r2dii.utils/config.yml
-#&gt; /home/travis/R/Library/r2dii.utils/config_2019Q2.yml</div><div class='input'><span class='fu'>example_config</span>(<span class='st'>"config-toy.yml"</span>)</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config-toy.yml"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"r2dii.dataraw_config"</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>get_config</span>()</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config.yml"</div><div class='input'>
-<span class='no'>restore</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii.dataraw_config</span> <span class='kw'>=</span> <span class='st'>"path/to/your/config.yml"</span>)
+#&gt; /home/travis/R/Library/r2dii.utils/config_2019Q2.yml</div><div class='input'><span class='fu'>example_config</span>(<span class='st'>"config-toy.yml"</span>)</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config-toy.yml"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"r2dii_config"</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>get_config</span>()</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config.yml"</div><div class='input'>
+<span class='no'>restore</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_config</span> <span class='kw'>=</span> <span class='st'>"path/to/your/config.yml"</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"r2dii.dataraw_config"</span>)</div><div class='output co'>#&gt; [1] "path/to/your/config.yml"</div><div class='input'><span class='fu'>get_config</span>()</div><div class='output co'>#&gt; [1] "path/to/your/config.yml"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"r2dii_config"</span>)</div><div class='output co'>#&gt; [1] "path/to/your/config.yml"</div><div class='input'><span class='fu'>get_config</span>()</div><div class='output co'>#&gt; [1] "path/to/your/config.yml"</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>restore</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"r2dii.dataraw_config"</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>get_config</span>()</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config.yml"</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"r2dii_config"</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>get_config</span>()</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/r2dii.utils/config.yml"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
