@@ -36,14 +36,7 @@
 
 
 <meta property="og:title" content="Easily access directories in your local copy of 2dii's Dropbox folder — path_dropbox_2dii" />
-<meta property="og:description" content="Nesting your projects in 2dii's Dropbox folder is a bad idea. The path to
-2dii's Dropbox folder contains a space and a symbol which -- among other
-problems -- may brake RStudio's Git pane
-(example). This
-function allows you to access files located in a problematic local address
-such as C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv from
-a local project located in a sane address such as
-C:/Users/You/git/project/." />
+<meta property="og:description" content="This function creates cross-platform paths pointing to 2dii's Dropbox folder." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -130,14 +123,7 @@ C:/Users/You/git/project/." />
     </div>
 
     <div class="ref-description">
-    <p>Nesting your projects in 2dii's Dropbox folder is a bad idea. The path to
-2dii's Dropbox folder contains a space and a symbol which -- among other
-problems -- may brake RStudio's Git pane
-(<a href='https://github.com/2DegreesInvesting/resources/issues/51'>example</a>). This
-function allows you to access files located in a problematic local address
-such as <code>C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv</code> from
-a local project located in a sane address such as
-<code>C:/Users/You/git/project/</code>.</p>
+    <p>This function creates cross-platform paths pointing to 2dii's Dropbox folder.</p>
     </div>
 
     <pre class="usage"><span class='fu'>path_dropbox_2dii</span>(<span class='no'>...</span>)</pre>
@@ -155,20 +141,30 @@ a local project located in a sane address such as
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A character string.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Your projects may need data stored in 2dii's Dropbox folder. Sometimes it is
+convenient to have your projects close to the data. But, in this case, it is
+a bad idea because the path to 2dii's Dropbox folder has a problematic space
+and symbol. (For example, <a href='https://github.com/2DegreesInvesting/resources/issues/51'>RStudio's Git pane may not work</a>.) Instead,
+place your projects somewhere with a sane path, such as
+<code>C:/Users/You/git/project/</code>, and access the data you need with
+<code>path_dropbox_2dii()</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='degrees.html'>degrees()</a></code>.</p>
+    <div class='dont-index'><p><code><a href='degrees.html'>degrees()</a></code>, <code><a href='http://fs.r-lib.org/reference/path_expand.html'>fs::path_home()</a></code>.</p>
 <p>Other functions to output 2dii paths: <code><a href='USER.NAME.html'>USER.NAME</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>path_dropbox_2dii</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)</div><div class='input'>
-<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path/to/somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/somewhere</div></pre>
+<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/somewhere</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
