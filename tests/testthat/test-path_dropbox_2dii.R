@@ -14,6 +14,7 @@ test_that("path_dropbox_2dii outputs on object of correct class", {
 })
 
 test_that("path_dropbox_2dii outputs a path to an existing directory", {
+  skip_on_travis()
   expect_true(fs::dir_exists(path_dropbox_2dii()))
 })
 
