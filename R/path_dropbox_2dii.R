@@ -1,18 +1,21 @@
 #' Easily access directories in your local copy of 2dii's Dropbox folder
 #'
-#' Nesting your projects in 2dii's Dropbox folder is a bad idea. The path to
-#' 2dii's Dropbox folder contains a space and a symbol which -- among other
-#' problems -- may brake RStudio's Git pane
-#' ([example](https://github.com/2DegreesInvesting/resources/issues/51)). This
-#' function allows you to access files located in a problematic local address
-#' such as `C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv` from
-#' a local project located in a sane address such as
-#' `C:/Users/You/git/project/`.
+#'
+#' This function creates cross-platform paths pointing to 2dii's Dropbox folder.
+#'
+#' Your projects may need data stored in 2dii's Dropbox folder. Sometimes it is
+#' convenient to have your projects close to the data. But, in this case, it is
+#' a bad idea because the path to 2dii's Dropbox folder has a problematic space
+#' and symbol. (For example, [RStudio's Git pane may not
+#' work](https://github.com/2DegreesInvesting/resources/issues/51).) Instead,
+#' place your projects somewhere with a sane path, such as
+#' `C:/Users/You/git/project/`, and access the data you need with
+#' `path_dropbox_2dii()`.
 #'
 #' @param ... Character vectors, if any values are `NA`, the result will also be
 #'   `NA`.
 #'
-#' @seealso [degrees()].
+#' @seealso [degrees()], [fs::path_home()].
 #' @family functions to output 2dii paths
 #'
 #' @return A character string.
@@ -21,7 +24,7 @@
 #' @examples
 #' path_dropbox_2dii()
 #'
-#' path_dropbox_2dii("path/to/somewhere")
+#' path_dropbox_2dii("path", "to", "somewhere")
 path_dropbox_2dii <- function(...) {
   fs::path_home(glue("Dropbox (2{degrees()} Investing)"), ...)
 }

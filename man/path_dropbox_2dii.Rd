@@ -14,22 +14,24 @@ path_dropbox_2dii(...)
 A character string.
 }
 \description{
-Nesting your projects in 2dii's Dropbox folder is a bad idea. The path to
-2dii's Dropbox folder contains a space and a symbol which -- among other
-problems -- may brake RStudio's Git pane
-(\href{https://github.com/2DegreesInvesting/resources/issues/51}{example}). This
-function allows you to access files located in a problematic local address
-such as \code{C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv} from
-a local project located in a sane address such as
-\code{C:/Users/You/git/project/}.
+This function creates cross-platform paths pointing to 2dii's Dropbox folder.
+}
+\details{
+Your projects may need data stored in 2dii's Dropbox folder. Sometimes it is
+convenient to have your projects close to the data. But, in this case, it is
+a bad idea because the path to 2dii's Dropbox folder has a problematic space
+and symbol. (For example, \href{https://github.com/2DegreesInvesting/resources/issues/51}{RStudio's Git pane may not work}.) Instead,
+place your projects somewhere with a sane path, such as
+\code{C:/Users/You/git/project/}, and access the data you need with
+\code{path_dropbox_2dii()}.
 }
 \examples{
 path_dropbox_2dii()
 
-path_dropbox_2dii("path/to/somewhere")
+path_dropbox_2dii("path", "to", "somewhere")
 }
 \seealso{
-\code{\link[=degrees]{degrees()}}.
+\code{\link[=degrees]{degrees()}}, \code{\link[fs:path_home]{fs::path_home()}}.
 
 Other functions to output 2dii paths: \code{\link{USER.NAME}}
 }
