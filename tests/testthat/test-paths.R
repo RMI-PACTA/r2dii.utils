@@ -18,21 +18,9 @@ test_that("FIN.DATA.PATH is sensitive to config file set globally", {
   expect_false(identical(default, example))
 })
 
-test_that("DROPBOX.PATH output is as expected", {
-  expect_equal(
-    fs::path_file(DROPBOX.PATH()),
-    as.character(glue("Dropbox (2{degrees()} Investing)"))
-  )
-})
-
 test_that("USER.NAME outputs a valid", {
   skip_if_not_in_mauro_pc()
   expect_equal(USER.NAME(), "Mauro")
-})
-
-test_that("DROPBOX.PATH outputs a valid", {
-  skip_if_not_in_mauro_pc()
-  expect_true(fs::dir_exists(DROPBOX.PATH()))
 })
 
 test_that("GIT.PATH warns if output doesn't exist", {
@@ -114,10 +102,6 @@ test_that("FUND.DATA.PATH outputs a valid", {
 })
 
 # Class -------------------------------------------------------------------
-
-test_that("DROPBOX.PATH outputs on object of correct class", {
-  expect_is(DROPBOX.PATH(), "fs_path")
-})
 
 test_that("GIT.PATH outputs on object of correct class", {
   expect_warning(

@@ -89,6 +89,9 @@ USER.NAME <- function() fs::path_file(fs::path_home())
 #' @examples
 #' DROPBOX.PATH()
 DROPBOX.PATH <- function(...) {
+  lifecycle::deprecate_warn(
+    "0.0.0", "r2dii.utils::DROPBOX.PATH()", "r2dii.utils::path_dropbox_2dii()"
+  )
   path_dropbox_2dii(...)
 }
 
@@ -97,7 +100,7 @@ DROPBOX.PATH <- function(...) {
 #' @examples
 #' GIT.PATH()
 GIT.PATH <- function(...) {
-  out <- DROPBOX.PATH(
+  out <- path_dropbox_2dii(
     glue("2{degrees()} Investing Team"), "People", USER.NAME(), "GitHub",
     ...
   )
@@ -129,7 +132,7 @@ COMPANY.PATH <- function(...) GIT.PATH("CompanyAnalysis", ...)
 #' @export
 #' @examples
 #' dbox_port_00("a", "directory")
-dbox_port_00 <- function(...) DROPBOX.PATH("PortCheck", "00_Data", ...)
+dbox_port_00 <- function(...) path_dropbox_2dii("PortCheck", "00_Data", ...)
 #' @rdname USER.NAME
 #' @export
 #' @examples
@@ -143,7 +146,7 @@ SCENARIO.DATA.PATH <- function(...) {
 #' @examples
 #' dbox_port2_10proj("a", "directory")
 dbox_port2_10proj <- function(...) {
-  DROPBOX.PATH("PortCheck_v2", "10_Projects", ...)
+  path_dropbox_2dii("PortCheck_v2", "10_Projects", ...)
 }
 #' @rdname USER.NAME
 #' @export

@@ -21,6 +21,7 @@ Imports:
     dplyr,
     fs,
     glue,
+    lifecycle,
     purrr,
     readr,
     rlang,
