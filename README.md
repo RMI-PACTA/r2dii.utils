@@ -23,4 +23,17 @@ devtools::install_github("2DegreesInvesting/r2dii.utils")
 
 ## Example
 
-[Go to examples](https://2degreesinvesting.github.io/r2dii/#examples)
+``` r
+library(r2dii.utils)
+
+path_dropbox_2dii("path", "to", "a", "file.csv")
+#> C:/Users/Mauro/Dropbox (2° Investing)/path/to/a/file.csv
+
+degrees()
+#> [1] "°"
+
+glue::glue("2{degrees()} Investing Initiative")
+#> 2° Investing Initiative
+```
+
+[Get started](https://2degreesinvesting.github.io/r2dii/#examples)
