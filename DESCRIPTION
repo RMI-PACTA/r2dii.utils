@@ -17,15 +17,15 @@ URL: https://github.com/2DegreesInvesting/r2dii.utils
 BugReports: 
     https://github.com/2DegreesInvesting/r2dii.utils/issues
 Imports: 
-    glue,
-    rlang,
-    usethis,
-    readr,
     config,
     dplyr,
-    purrr
-Suggests: 
     fs,
+    glue,
+    purrr,
+    readr,
+    rlang,
+    usethis
+Suggests: 
     pkgdown,
     testthat (>= 2.1.0),
     withr

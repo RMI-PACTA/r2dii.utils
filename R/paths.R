@@ -89,7 +89,7 @@ USER.NAME <- function() fs::path_file(fs::path_home())
 #' @examples
 #' DROPBOX.PATH()
 DROPBOX.PATH <- function(...) {
-  path_drobox_2dii(...)
+  path_dropbox_2dii(...)
 }
 
 #' @rdname USER.NAME
