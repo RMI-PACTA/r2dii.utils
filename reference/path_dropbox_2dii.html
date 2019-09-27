@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • r2dii.utils</title>
+<title>Easily access directories in your local copy of 2dii's Dropbox folder — path_dropbox_2dii • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,16 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Easily access directories in your local copy of 2dii's Dropbox folder — path_dropbox_2dii" />
+<meta property="og:description" content="Nesting your projects in 2dii's Dropbox folder is a bad idea. The path to
+2dii's Dropbox folder contains a space and a symbol which -- among other
+problems -- may brake RStudio's Git pane
+(example). This
+function allows you to access files located in a problematic local address
+such as C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv from
+a local project located in a sane address such as
+C:/Users/You/git/project/." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +63,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,30 +124,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Easily access directories in your local copy of 2dii's Dropbox folder</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/path_dropbox_2dii.R'><code>R/path_dropbox_2dii.R</code></a></small>
+    <div class="hidden name"><code>path_dropbox_2dii.Rd</code></div>
     </div>
 
-    <div id="r2dii-utils-0-0-0-9000" class="section level1">
-<h1 class="page-header">
-<a href="#r2dii-utils-0-0-0-9000" class="anchor"></a>r2dii.utils 0.0.0.9000</h1>
-<ul>
-<li><p>New <code><a href="../reference/path_dropbox_2dii.html">path_dropbox_2dii()</a></code> improves <code><a href="../reference/USER.NAME.html">DROPBOX.PATH()</a></code> with better name and documentation (<a href='https://github.com/2DegreesInvesting/r2dii.utils/issues/2'>#2</a>; thanks <a href='https://github.com/cjyetman'>@cjyetman</a>, <a href='https://github.com/pranavpandya84'>@pranavpandya84</a>).</p></li>
-<li><p>New functions to handle paths, to handle the configuration file, and miscellaneous.</p></li>
-<li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Nesting your projects in 2dii's Dropbox folder is a bad idea. The path to
+2dii's Dropbox folder contains a space and a symbol which -- among other
+problems -- may brake RStudio's Git pane
+(<a href='https://github.com/2DegreesInvesting/resources/issues/51'>example</a>). This
+function allows you to access files located in a problematic local address
+such as <code>C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv</code> from
+a local project located in a sane address such as
+<code>C:/Users/You/git/project/</code>.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>path_dropbox_2dii</span>(<span class='no'>...</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Character vectors, if any values are <code>NA</code>, the result will also be
+<code>NA</code>.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A character string.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='degrees.html'>degrees()</a></code>.</p>
+<p>Other functions to output 2dii paths: <code><a href='USER.NAME.html'>USER.NAME</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>path_dropbox_2dii</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)</div><div class='input'>
+<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path/to/somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/somewhere</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#r2dii-utils-0-0-0-9000">0.0.0.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 
