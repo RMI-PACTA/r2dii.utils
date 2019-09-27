@@ -89,7 +89,7 @@ USER.NAME <- function() fs::path_file(fs::path_home())
 #' @examples
 #' DROPBOX.PATH()
 DROPBOX.PATH <- function(...) {
-  fs::path_home(glue("Dropbox (2{degrees()} Investing)"), ...)
+  path_drobox_2dii(...)
 }
 
 #' @rdname USER.NAME

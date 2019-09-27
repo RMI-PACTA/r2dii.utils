@@ -1,0 +1,26 @@
+#' Easily access directories in your local copy of 2dii's Dropbox folder
+#'
+#' Don't nest your projects in 2dii's Dropbox folder. The path to 2dii's Dropbox
+#' folder contains a space and a symbol which -- among other problems -- may
+#' brake RStudio's Git pane
+#' ([example](https://github.com/2DegreesInvesting/resources/issues/51)). This
+#' function allows you to access files located in a problematic local address
+#' such as `C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv` from
+#' a local project located in a sane address such as
+#' `C:/Users/You/git/project/`.
+#'
+#' @inheritDotParams fs::path_wd
+#'
+#' @seealso [degrees()].
+#' @family functions to output 2dii paths
+#'
+#' @return A character string.
+#' @export
+#'
+#' @examples
+#' path_drobox_2dii()
+#'
+#' path_drobox_2dii("path/to/somewhere")
+path_drobox_2dii <- function(...) {
+  fs::path_home(glue("Dropbox (2{degrees()} Investing)"), ...)
+}

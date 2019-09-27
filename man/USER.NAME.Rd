@@ -74,5 +74,7 @@ FUND.DATA.PATH()
 Replaces \code{dataprep.SetPaths()}.
 
 \link{MASTER.DATA.PATH}
+
+Other functions to output 2dii paths: \code{\link{path_drobox_2dii}}
 }
 \concept{functions to output 2dii paths}
