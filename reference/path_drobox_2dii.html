@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create paths to specific 2dii directories — USER.NAME • r2dii.utils</title>
+<title>Easily access directories in your local copy of 2dii's Dropbox folder — path_drobox_2dii • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,15 @@
 
 
 
-<meta property="og:title" content="Create paths to specific 2dii directories — USER.NAME" />
-<meta property="og:description" content="Create paths to specific 2dii directories" />
+<meta property="og:title" content="Easily access directories in your local copy of 2dii's Dropbox folder — path_drobox_2dii" />
+<meta property="og:description" content="Don't nest your projects in 2dii's Dropbox folder. The path to 2dii's Dropbox
+folder contains a space and a symbol which -- among other problems -- may
+brake RStudio's Git pane
+(example). This
+function allows you to access files located in a problematic local address
+such as C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv from
+a local project located in a sane address such as
+C:/Users/You/git/project/." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,48 +124,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create paths to specific 2dii directories</h1>
-    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/paths.R'><code>R/paths.R</code></a></small>
-    <div class="hidden name"><code>USER.NAME.Rd</code></div>
+    <h1>Easily access directories in your local copy of 2dii's Dropbox folder</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/path_dropbox_2dii.R'><code>R/path_dropbox_2dii.R</code></a></small>
+    <div class="hidden name"><code>path_drobox_2dii.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create paths to specific 2dii directories</p>
+    <p>Don't nest your projects in 2dii's Dropbox folder. The path to 2dii's Dropbox
+folder contains a space and a symbol which -- among other problems -- may
+brake RStudio's Git pane
+(<a href='https://github.com/2DegreesInvesting/resources/issues/51'>example</a>). This
+function allows you to access files located in a problematic local address
+such as <code>C:/Users/You/Dropbox (2{degrees} Investing)/datasets/data.csv</code> from
+a local project located in a sane address such as
+<code>C:/Users/You/git/project/</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>USER.NAME</span>()
-
-<span class='fu'>DROPBOX.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>GIT.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>WEBTOOL.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>COMPANY.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>dbox_port_00</span>(<span class='no'>...</span>)
-
-<span class='fu'>SCENARIO.DATA.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>dbox_port2_10proj</span>(<span class='no'>...</span>)
-
-<span class='fu'>EQMARKET.DATA.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>MARKET.DATA.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>INDEX.DATA.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>INDEX.RESULTS.DATA.PATH</span>(<span class='no'>...</span>)
-
-<span class='fu'>FUND.DATA.PATH</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>path_drobox_2dii</span>(<span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>character vectors, if any values are NA, the result will also be
-NA.</p></td>
+      <td><p>Arguments passed on to <code><a href='http://fs.r-lib.org/reference/path.html'>fs::path_wd</a></code></p><dl class='dl-horizontal'>
+  <dt>ext</dt><dd><p>An optional extension to append to the generated path.</p></dd>
+
+</dl></td>
     </tr>
     </table>
 
@@ -167,14 +159,12 @@ NA.</p></td>
     <p>A character string.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Replaces <code>dataprep.SetPaths()</code>.</p>
-<p><a href='MASTER.DATA.PATH.html'>MASTER.DATA.PATH</a></p>
-<p>Other functions to output 2dii paths: <code><a href='path_drobox_2dii.html'>path_drobox_2dii</a></code></p></div>
+    <div class='dont-index'><p><code><a href='degrees.html'>degrees()</a></code>.</p>
+<p>Other functions to output 2dii paths: <code><a href='USER.NAME.html'>USER.NAME</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/path_file.html'>path_file</a></span>(<span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/path_expand.html'>path_home</a></span>())</div><div class='output co'>#&gt; [1] "travis"</div><div class='input'><span class='co'># Shortcut</span>
-<span class='fu'>USER.NAME</span>()</div><div class='output co'>#&gt; [1] "travis"</div><div class='input'>
-<span class='fu'>DROPBOX.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)</div><div class='input'><span class='fu'>GIT.PATH</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: The output path doesn't exist. Do you need to create it?</span></div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/2° Investing Team/People/travis/GitHub</div><div class='input'><span class='fu'>WEBTOOL.PATH</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: The output path doesn't exist. Do you need to create it?</span></div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/2° Investing Team/People/travis/GitHub/Webtool-v2</div><div class='input'><span class='fu'>COMPANY.PATH</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: The output path doesn't exist. Do you need to create it?</span></div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/2° Investing Team/People/travis/GitHub/CompanyAnalysis</div><div class='input'><span class='fu'>dbox_port_00</span>(<span class='st'>"a"</span>, <span class='st'>"directory"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck/00_Data/a/directory</div><div class='input'><span class='fu'>SCENARIO.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck/00_Data/01_ProcessedData/03_ScenarioData</div><div class='input'><span class='fu'>dbox_port2_10proj</span>(<span class='st'>"a"</span>, <span class='st'>"directory"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck_v2/10_Projects/a/directory</div><div class='input'><span class='fu'>EQMARKET.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck_v2/10_Projects/0_MarketPortfolios/21_EQMarketSize_Inputs</div><div class='input'><span class='fu'>MARKET.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck_v2/10_Projects/0_MarketPortfolios/20_Raw_Inputs</div><div class='input'><span class='fu'>INDEX.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck_v2/10_Projects/0_Indices/20_Raw_Inputs</div><div class='input'><span class='fu'>INDEX.RESULTS.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck_v2/10_Projects/0_Indices/40_Results</div><div class='input'><span class='fu'>FUND.DATA.PATH</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/PortCheck_v2/10_Projects/0_FundPortfolios/20_Raw_Inputs</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>path_drobox_2dii</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)</div><div class='input'>
+<span class='fu'>path_drobox_2dii</span>(<span class='st'>"path/to/somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/somewhere</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
