@@ -16,6 +16,7 @@ Return a vector giving the name of r2dii packages
 r2dii_packages()
 }
 \seealso{
-Other miscellaneous utility functions: \code{\link{degrees}}
+Other miscellaneous utility functions: \code{\link{degrees}},
+  \code{\link{dropbox_exists}}
 }
 \concept{miscellaneous utility functions}
