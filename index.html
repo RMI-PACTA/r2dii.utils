@@ -96,9 +96,6 @@
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(r2dii.utils)</a></code></pre></div>
-<div id="configuration" class="section level3">
-<h3 class="hasAnchor">
-<a href="#configuration" class="anchor"></a>Configuration</h3>
 <p>Most analysis may start by setting a configuration file globally via <code><a href="https://rdrr.io/r/base/options.html">options()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">r2dii_config =</span> <span class="st">"path/to/your/configuration/file.yml"</span>)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/default_config.html">get_config</a></span>()</a>
@@ -114,10 +111,6 @@
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># No longer throws a warning</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="reference/default_config.html">get_config</a></span>()</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config_demo.yml"</span></a></code></pre></div>
-</div>
-<div id="paths" class="section level3">
-<h3 class="hasAnchor">
-<a href="#paths" class="anchor"></a>Paths</h3>
 <p>A family of functions help you to create convenient paths pointing to directories inside 2dii’s dropbox-folder. The most general is <code><a href="reference/path_dropbox_2dii.html">path_dropbox_2dii()</a></code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/path_dropbox_2dii.html">path_dropbox_2dii</a></span>(<span class="st">"path"</span>, <span class="st">"to"</span>, <span class="st">"a"</span>, <span class="st">"file.csv"</span>)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; C:/Users/Mauro/Dropbox (2° Investing)/path/to/a/file.csv</span></a></code></pre></div>
@@ -131,7 +124,6 @@
 <a class="sourceLine" id="cb8-4" data-line-number="4">glue<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/glue/man/glue.html">glue</a></span>(<span class="st">"2 {degrees()} Investing Initiative"</span>)</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; 2 ° Investing Initiative</span></a></code></pre></div>
 <p><a href="https://2degreesinvesting.github.io/r2dii/#examples">Get started</a></p>
-</div>
 </div>
 </div>
   </div>
