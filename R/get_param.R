@@ -57,7 +57,7 @@ pluck_param <- function(x, file, if_null) {
   if (is.null(out) && identical(if_null, stop)) {
     abort(glue(
       "{param} must be not `NULL`.
-      Please set {param} on config.yml."
+      Please set {param} on the configuration (.yml) file."
     ))
   }
 

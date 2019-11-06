@@ -72,5 +72,7 @@ test_that("FINANCIAL.TIMESTAMP uses `r2dii_config` option", {
 })
 
 test_that("FINANCIAL.TIMESTAMP with defaults outputs 2018Q4", {
-  expect_equal(FINANCIAL.TIMESTAMP(), "2018Q4")
+  expect_equal(
+    FINANCIAL.TIMESTAMP(), "DONT-DELETE"
+  )
 })

@@ -73,7 +73,7 @@ edit_config <- function(path = get_config()) {
 #' example_config()
 #' example_config("config-toy.yml")
 default_config <- function() {
-  example_config("config.yml")
+  example_config("config_demo.yml")
 }
 
 #' @rdname default_config
