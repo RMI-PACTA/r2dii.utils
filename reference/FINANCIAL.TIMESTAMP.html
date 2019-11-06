@@ -202,14 +202,14 @@ field.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Using the default configuration file that comes with the package</span>
-<span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "2018Q4"</div><div class='input'>
+<span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'>
 <span class='co'># Using your configuration file</span>
 <span class='no'>path_to_your_config_file</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>example_config</a></span>(<span class='st'>"config-toy.yml"</span>)
 
 <span class='co'># Passing your configuration file via the `file` argument</span>
 <span class='fu'>FINANCIAL.TIMESTAMP</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)</div><div class='output co'>#&gt; [1] "2018Q3"</div><div class='input'>
 <span class='co'># The default remains the same</span>
-<span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "2018Q4"</div><div class='input'><span class='fu'>ALD.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] 201812</div><div class='input'>
+<span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'><span class='fu'>ALD.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] 201812</div><div class='input'>
 <span class='co'># Setting the path to your configuration file globally</span>
 <span class='no'>old_options</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_config</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)
 <span class='co'># The default configuration file has now changed</span>
@@ -217,7 +217,7 @@ field.</p>
 <span class='co'># Reset options to cleanup</span>
 <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>old_options</span>)
 
-<span class='fu'>timestamps_datastore_export</span>()</div><div class='output co'>#&gt; [1] "06212019"</div><div class='input'><span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "2018Q4"</div><div class='input'><span class='fu'>DATASTORE.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "06212019"</div><div class='input'><span class='fu'>DATAPREP.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "mauroexplores"</div><div class='input'><span class='fu'>START.YEAR</span>()</div><div class='output co'>#&gt; [1] 2019</div><div class='input'><span class='fu'>TIME.HORIZON</span>()</div><div class='output co'>#&gt; [1] 5</div><div class='input'><span class='fu'>RISK.YEAR</span>()</div><div class='output co'>#&gt; [1] 2020</div><div class='input'><span class='fu'>ADDITIONAL.YEAR</span>()</div><div class='output co'>#&gt; [1] 2040</div><div class='input'><span class='fu'>TECH.LIST</span>()</div><div class='output co'>#&gt;  [1] "Electric"      "Hybrid"        "ICE"           "GasCap"       
+<span class='fu'>timestamps_datastore_export</span>()</div><div class='output co'>#&gt; [1] "ASK-MAURO"</div><div class='input'><span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'><span class='fu'>DATASTORE.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "ASK-MAURO"</div><div class='input'><span class='fu'>DATAPREP.TIMESTAMP</span>()</div><div class='output co'>#&gt; [1] "mauroexplores"</div><div class='input'><span class='fu'>START.YEAR</span>()</div><div class='output co'>#&gt; [1] 2019</div><div class='input'><span class='fu'>TIME.HORIZON</span>()</div><div class='output co'>#&gt; [1] 5</div><div class='input'><span class='fu'>RISK.YEAR</span>()</div><div class='output co'>#&gt; [1] 2020</div><div class='input'><span class='fu'>ADDITIONAL.YEAR</span>()</div><div class='output co'>#&gt; [1] 2040</div><div class='input'><span class='fu'>TECH.LIST</span>()</div><div class='output co'>#&gt;  [1] "Electric"      "Hybrid"        "ICE"           "GasCap"       
 #&gt;  [5] "CoalCap"       "OilCap"        "RenewablesCap" "HydroCap"     
 #&gt;  [9] "NuclearCap"    "Coal"          "Oil"           "Gas"          </div><div class='input'><span class='fu'>TECH.EXCLUDE</span>()</div><div class='output co'>#&gt;  [1] "FuelCell"                           "Fuel cell"                         
 #&gt;  [3] "OtherCap"                           "OtherFF"                           

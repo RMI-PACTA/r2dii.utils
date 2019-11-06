@@ -173,7 +173,7 @@ file.</p></td>
 <span class='co'># Fails: The parameter 'bad' doesn't exist, so it is `NULL`</span>
 <span class='no'>fails</span> <span class='kw'>&lt;-</span> <span class='fu'>get_param</span>(<span class='st'>"bad"</span>, <span class='kw'>if_null</span> <span class='kw'>=</span> <span class='no'>stop</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fails</span>())</div><div class='output co'>#&gt; Error : bad must be not `NULL`.
-#&gt; Please set bad on config.yml.</div><div class='input'>
+#&gt; Please set bad on the configuration (.yml) file.</div><div class='input'>
 <span class='no'>returns_null</span> <span class='kw'>&lt;-</span> <span class='fu'>get_param</span>(<span class='st'>"bad"</span>)
 <span class='fu'>returns_null</span>()</div><div class='output co'>#&gt; NULL</div><div class='input'>
 <span class='no'>returns_value_passed_to_if_null</span> <span class='kw'>&lt;-</span> <span class='fu'>get_param</span>(<span class='st'>"bad"</span>, <span class='kw'>if_null</span> <span class='kw'>=</span> <span class='fl'>1</span>)
