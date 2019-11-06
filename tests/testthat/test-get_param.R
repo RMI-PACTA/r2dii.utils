@@ -6,7 +6,9 @@ test_that("get_param(<field>)(<file>) outputs a value from a config <file>", {
   config_path <- tempfile()
   readr::write_lines(config_file, config_path)
 
-  expect_equal(get_param("a_field")(), NULL)
+  # Avoid warning from default_config()
+  default_config <- suppressWarnings(default_config())
+  expect_equal(get_param("a_field")(default_config), NULL)
   expect_equal(get_param("a_field")(config_path), "a_value")
 })
 
@@ -71,8 +73,7 @@ test_that("FINANCIAL.TIMESTAMP uses `r2dii_config` option", {
   expect_equal(ALD.TIMESTAMP(), 3333L)
 })
 
-test_that("FINANCIAL.TIMESTAMP with defaults outputs 2018Q4", {
-  expect_equal(
-    FINANCIAL.TIMESTAMP(), "DONT-DELETE"
-  )
+test_that("FINANCIAL.TIMESTAMP with defaults outputs 'DONT-DELETE'", {
+  default_config <- suppressWarnings(default_config())
+  expect_equal(FINANCIAL.TIMESTAMP(file = default_config), "DONT-DELETE")
 })

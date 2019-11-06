@@ -1,4 +1,7 @@
-context("paths")
+# Avoid warning from default_config()
+restore <- getOption("r2dii_config")
+setup(options(r2dii_config = suppressWarnings(default_config())))
+teardown(options(r2dii_config = restore))
 
 skip_if_not_in_mauro_pc <- function() {
   if (!grepl("Mauro", fs::path_home())) {
@@ -7,7 +10,8 @@ skip_if_not_in_mauro_pc <- function() {
 }
 
 test_that("FIN.DATA.PATH is sensitive to config file set globally", {
-  default <- withr::with_options(list(r2dii_config = default_config()), {
+  default_config <- suppressWarnings(default_config())
+  default <- withr::with_options(list(r2dii_config = default_config), {
     FIN.DATA.PATH()
   })
   config <- example_config("config-toy.yml")

@@ -73,6 +73,7 @@ edit_config <- function(path = get_config()) {
 #' example_config()
 #' example_config("config-toy.yml")
 default_config <- function() {
+  warn_using_toy_config()
   example_config("config_demo.yml")
 }
 
@@ -102,4 +103,14 @@ example_config <- function (path = NULL) {
 #' get_config()
 get_config <- function() {
   getOption("r2dii_config") %||% default_config()
+}
+
+warn_using_toy_config <- function() {
+  hint <- ui_code("options(r2dii_config = 'path/to/config.yml')")
+  warn(
+    glue(
+      "Using a toy configuration file.
+      You may use your configuration file with {hint}"
+    )
+  )
 }
