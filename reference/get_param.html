@@ -172,12 +172,15 @@ file.</p></td>
 <span class='fu'>get_a_value</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>path_to_config_file</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'>
 <span class='co'># Fails: The parameter 'bad' doesn't exist, so it is `NULL`</span>
 <span class='no'>fails</span> <span class='kw'>&lt;-</span> <span class='fu'>get_param</span>(<span class='st'>"bad"</span>, <span class='kw'>if_null</span> <span class='kw'>=</span> <span class='no'>stop</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fails</span>())</div><div class='output co'>#&gt; Error : bad must be not `NULL`.
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fails</span>())</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; Error : bad must be not `NULL`.
 #&gt; Please set bad on the configuration (.yml) file.</div><div class='input'>
 <span class='no'>returns_null</span> <span class='kw'>&lt;-</span> <span class='fu'>get_param</span>(<span class='st'>"bad"</span>)
-<span class='fu'>returns_null</span>()</div><div class='output co'>#&gt; NULL</div><div class='input'>
+<span class='fu'>returns_null</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; NULL</div><div class='input'>
 <span class='no'>returns_value_passed_to_if_null</span> <span class='kw'>&lt;-</span> <span class='fu'>get_param</span>(<span class='st'>"bad"</span>, <span class='kw'>if_null</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='fu'>returns_value_passed_to_if_null</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: On config.yml, bad is undefined.</span></div><div class='output co'>#&gt; <span class='message'>Setting bad to default value: 1.</span></div><div class='output co'>#&gt; [1] 1</div></pre>
+<span class='fu'>returns_value_passed_to_if_null</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; <span class='warning'>Warning: On config.yml, bad is undefined.</span></div><div class='output co'>#&gt; <span class='message'>Setting bad to default value: 1.</span></div><div class='output co'>#&gt; [1] 1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

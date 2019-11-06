@@ -153,8 +153,8 @@ to <code><a href='default_config.html'>get_config()</a></code>.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># A configuration file stored in the package</span>
-<span class='no'>path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>default_config</a></span>()
-<span class='fu'>show_config</span>(<span class='no'>path</span>, <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; default:
+<span class='no'>path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>default_config</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='input'><span class='fu'>show_config</span>(<span class='no'>path</span>, <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; default:
 #&gt;   Methodology:
 #&gt;     HasBookValue: FALSE # ignore
 #&gt;     HasRISK: TRUE # ignore a flag specifying if the physical risk assessment should be done
