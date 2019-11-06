@@ -27,8 +27,6 @@ devtools::install_github("2DegreesInvesting/r2dii.utils")
 library(r2dii.utils)
 ```
 
-### Configuration
-
 Most analysis may start by setting a configuration file globally via
 `options()`.
 
@@ -58,8 +56,6 @@ options(r2dii_config = suppressWarnings(default_config()))
 get_config()
 #> [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config_demo.yml"
 ```
-
-### Paths
 
 A family of functions help you to create convenient paths pointing to
 directories inside 2dii’s dropbox-folder. The most general is
