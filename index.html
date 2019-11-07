@@ -88,42 +88,14 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Install the development version of r2dii.utils with something like this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"2DegreesInvesting/r2dii.utils"</span>)</a></code></pre></div>
+<p><a href="https://gist.github.com/maurolepore/a0187be9d40aee95a43f20a85f4caed6#installation">How to minimize installation errors?</a></p>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(r2dii.utils)</a></code></pre></div>
-<p>Most analysis may start by setting a configuration file globally via <code><a href="https://rdrr.io/r/base/options.html">options()</a></code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">r2dii_config =</span> <span class="st">"path/to/your/configuration/file.yml"</span>)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/default_config.html">get_config</a></span>()</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; [1] "path/to/your/configuration/file.yml"</span></a></code></pre></div>
-<p>If you don’t set a global configuration file, we default to using a toy configuration file with a warning.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">r2dii_config =</span> <span class="ot">NULL</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="reference/default_config.html">get_config</a></span>()</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; Warning: Using a toy configuration file.</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config_demo.yml"</span></a></code></pre></div>
-<p>I want to avoid that warning throughout this example, so I set the default configuration file explicitly.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">r2dii_config =</span> <span class="kw"><a href="https://rdrr.io/r/base/warning.html">suppressWarnings</a></span>(<span class="kw"><a href="reference/default_config.html">default_config</a></span>()))</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># No longer throws a warning</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="reference/default_config.html">get_config</a></span>()</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] "C:/Users/Mauro/Documents/R/win-library/3.6/r2dii.utils/config_demo.yml"</span></a></code></pre></div>
-<p>A family of functions help you to create convenient paths pointing to directories inside 2dii’s dropbox-folder. The most general is <code><a href="reference/path_dropbox_2dii.html">path_dropbox_2dii()</a></code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/path_dropbox_2dii.html">path_dropbox_2dii</a></span>(<span class="st">"path"</span>, <span class="st">"to"</span>, <span class="st">"a"</span>, <span class="st">"file.csv"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; C:/Users/Mauro/Dropbox (2° Investing)/path/to/a/file.csv</span></a></code></pre></div>
-<p>A family of functions help you to get specific parameters from the configuration file.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/FINANCIAL.TIMESTAMP.html">START.YEAR</a></span>()</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] 2019</span></a></code></pre></div>
-<p>Other functions are miscellaneous utilities.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="reference/degrees.html">degrees</a></span>()</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; [1] "°"</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">glue<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/glue/man/glue.html">glue</a></span>(<span class="st">"2 {degrees()} Investing Initiative"</span>)</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; 2 ° Investing Initiative</span></a></code></pre></div>
-<p><a href="https://2degreesinvesting.github.io/r2dii/#examples">Get started</a></p>
+<p><a href="https://2degreesinvesting.github.io/r2dii/#examples">Go to examples</a></p>
 </div>
 </div>
   </div>
