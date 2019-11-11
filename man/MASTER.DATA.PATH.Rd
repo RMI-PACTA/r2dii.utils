@@ -47,7 +47,6 @@ options(old_options)
 
 # Back to default
 FIN.DATA.PATH()
-
 CBMARKET.DATA.PATH()
 DATA.STORE.PATH()
 ANALYSIS.INPUTS.PATH()

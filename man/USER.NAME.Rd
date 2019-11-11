@@ -56,7 +56,6 @@ Create paths to specific 2dii directories
 fs::path_file(fs::path_home())
 # Shortcut
 USER.NAME()
-
 DROPBOX.PATH()
 GIT.PATH()
 WEBTOOL.PATH()

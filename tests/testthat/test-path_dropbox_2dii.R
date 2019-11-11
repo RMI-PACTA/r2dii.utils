@@ -30,4 +30,3 @@ test_that("DROPBOX.PATH output is as expected", {
     path_dropbox_2dii()
   )
 })
-

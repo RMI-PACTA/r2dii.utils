@@ -36,7 +36,7 @@ show_config(config_path)
 \seealso{
 \link{FINANCIAL.TIMESTAMP}
 
-Other functions to deal with configuration files: \code{\link{default_config}},
-  \code{\link{edit_config}}
+Other functions to deal with configuration files: \code{\link{create_config}},
+  \code{\link{default_config}}, \code{\link{edit_config}}
 }
 \concept{functions to deal with configuration files}

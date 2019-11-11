@@ -50,7 +50,7 @@ get_config()
 \seealso{
 \link{FINANCIAL.TIMESTAMP}
 
-Other functions to deal with configuration files: \code{\link{edit_config}},
-  \code{\link{show_config}}
+Other functions to deal with configuration files: \code{\link{create_config}},
+  \code{\link{edit_config}}, \code{\link{show_config}}
 }
 \concept{functions to deal with configuration files}

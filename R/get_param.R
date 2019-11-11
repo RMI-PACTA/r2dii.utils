@@ -51,7 +51,7 @@ get_param <- function(..., if_null = NULL) {
 }
 
 pluck_param <- function(x, file, if_null) {
-  out <- purrr::pluck(config::get(file = file), !!! x)
+  out <- purrr::pluck(config::get(file = file), !!!x)
   param <- ui_field(dplyr::last(unlist(x)))
 
   if (is.null(out) && identical(if_null, stop)) {
@@ -109,7 +109,6 @@ pluck_param <- function(x, file, if_null) {
 #'
 #' # Reset options to cleanup
 #' options(old_options)
-#'
 FINANCIAL.TIMESTAMP <- get_param(
   "TimeStamps", "FinancialData.Timestamp",
   if_null = stop
@@ -335,4 +334,31 @@ HasMAP <- get_param(
 HasSB <- get_param(
   "Methodology", "HasSB",
   if_null = FALSE
+)
+
+#' @rdname FINANCIAL.TIMESTAMP
+#' @export
+#' @examples
+#' inc_metaportfolio()
+inc_metaportfolio <- get_param(
+  "ComparisonBenchmarks", "CreateMetaPortfolio",
+  if_null = FALSE
+)
+
+#' @rdname FINANCIAL.TIMESTAMP
+#' @export
+#' @examples
+#' inc_project_metaportfolio()
+inc_project_metaportfolio <- get_param(
+  "ComparisonBenchmarks", "CreateProjectMetaPortfolio",
+  if_null = FALSE
+)
+
+#' @rdname FINANCIAL.TIMESTAMP
+#' @export
+#' @examples
+#' allowable_asset_list()
+allowable_asset_list <- get_param(
+  "Lists", "AssetTypes",
+  if_null = c("Funds", "Equity", "Bonds", "Others"),
 )

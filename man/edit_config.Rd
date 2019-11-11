@@ -26,7 +26,7 @@ show_config(example_config("config-toy.yml"))
 \seealso{
 \link{FINANCIAL.TIMESTAMP}
 
-Other functions to deal with configuration files: \code{\link{default_config}},
-  \code{\link{show_config}}
+Other functions to deal with configuration files: \code{\link{create_config}},
+  \code{\link{default_config}}, \code{\link{show_config}}
 }
 \concept{functions to deal with configuration files}

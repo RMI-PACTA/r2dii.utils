@@ -29,7 +29,6 @@
 #'
 #' # Back to default
 #' FIN.DATA.PATH()
-#'
 MASTER.DATA.PATH <- function(...) {
   dbox_port_00("01_ProcessedData", "01_SectorMasters", ALD.TIMESTAMP(), ...)
 }
@@ -81,7 +80,6 @@ ANALYSIS.INPUTS.PATH <- function(...) {
 #' fs::path_file(fs::path_home())
 #' # Shortcut
 #' USER.NAME()
-#'
 USER.NAME <- function() fs::path_file(fs::path_home())
 
 #' @rdname USER.NAME

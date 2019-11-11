@@ -79,7 +79,7 @@ default_config <- function() {
 
 #' @rdname default_config
 #' @export
-example_config <- function (path = NULL) {
+example_config <- function(path = NULL) {
   if (is.null(path)) {
     fs::dir_ls(system.file(package = "r2dii.utils"), glob = "*.yml")
   } else {

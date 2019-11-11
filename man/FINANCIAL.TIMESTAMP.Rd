@@ -28,6 +28,9 @@
 \alias{HasRISK}
 \alias{HasMAP}
 \alias{HasSB}
+\alias{inc_metaportfolio}
+\alias{inc_project_metaportfolio}
+\alias{allowable_asset_list}
 \title{Access parameters from a configuration file}
 \usage{
 FINANCIAL.TIMESTAMP(file = get_config())
@@ -85,6 +88,12 @@ HasRISK(file = get_config())
 HasMAP(file = get_config())
 
 HasSB(file = get_config())
+
+inc_metaportfolio(file = get_config())
+
+inc_project_metaportfolio(file = get_config())
+
+allowable_asset_list(file = get_config())
 }
 \arguments{
 \item{file}{A string giving a path to a configuration file.}
@@ -118,7 +127,6 @@ ALD.TIMESTAMP()
 
 # Reset options to cleanup
 options(old_options)
-
 timestamps_datastore_export()
 FINANCIAL.TIMESTAMP()
 DATASTORE.TIMESTAMP()
@@ -145,6 +153,9 @@ HasBV()
 HasRISK()
 HasMAP()
 HasSB()
+inc_metaportfolio()
+inc_project_metaportfolio()
+allowable_asset_list()
 }
 \seealso{
 \link{get_param}
