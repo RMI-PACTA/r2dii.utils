@@ -339,7 +339,12 @@ HasSB <- get_param(
 #' @rdname FINANCIAL.TIMESTAMP
 #' @export
 #' @examples
-#' inc_metaportfolio()
+#' config <- create_config("
+#'   default:
+#'     ComparisonBenchmarks:
+#'       CreateMetaPortfolio: a_value
+#' ")
+#' inc_metaportfolio(config)
 inc_metaportfolio <- get_param(
   "ComparisonBenchmarks", "CreateMetaPortfolio",
   if_null = FALSE
@@ -348,7 +353,12 @@ inc_metaportfolio <- get_param(
 #' @rdname FINANCIAL.TIMESTAMP
 #' @export
 #' @examples
-#' inc_project_metaportfolio()
+#' config <- create_config("
+#'   default:
+#'     ComparisonBenchmarks:
+#'       CreateProjectMetaPortfolio: a_value
+#' ")
+#' inc_project_metaportfolio(config)
 inc_project_metaportfolio <- get_param(
   "ComparisonBenchmarks", "CreateProjectMetaPortfolio",
   if_null = FALSE
@@ -357,7 +367,12 @@ inc_project_metaportfolio <- get_param(
 #' @rdname FINANCIAL.TIMESTAMP
 #' @export
 #' @examples
-#' allowable_asset_list()
+#' config <- create_config("
+#'   default:
+#'     Lists:
+#'       AssetTypes: a_value
+#' ")
+#' allowable_asset_list(config)
 allowable_asset_list <- get_param(
   "Lists", "AssetTypes",
   if_null = c("Funds", "Equity", "Bonds", "Others"),

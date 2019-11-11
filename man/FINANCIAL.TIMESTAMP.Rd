@@ -153,9 +153,24 @@ HasBV()
 HasRISK()
 HasMAP()
 HasSB()
-inc_metaportfolio()
-inc_project_metaportfolio()
-allowable_asset_list()
+config <- create_config("
+  default:
+    ComparisonBenchmarks:
+      CreateMetaPortfolio: a_value
+")
+inc_metaportfolio(config)
+config <- create_config("
+  default:
+    ComparisonBenchmarks:
+      CreateProjectMetaPortfolio: a_value
+")
+inc_project_metaportfolio(config)
+config <- create_config("
+  default:
+    Lists:
+      AssetTypes: a_value
+")
+allowable_asset_list(config)
 }
 \seealso{
 \link{get_param}
