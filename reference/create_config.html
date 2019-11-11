@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • r2dii.utils</title>
+<title>Create a configuration file — create_config • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,9 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Create a configuration file — create_config" />
+<meta property="og:description" content="Create a configuration file" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,41 +117,57 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Create a configuration file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/create_config.R'><code>R/create_config.R</code></a></small>
+    <div class="hidden name"><code>create_config.Rd</code></div>
     </div>
 
-    <div id="r2dii-utils-0-0-0-9000" class="section level1">
-<h1 class="page-header">
-<a href="#r2dii-utils-0-0-0-9000" class="anchor"></a>r2dii.utils 0.0.0.9000</h1>
-<ul>
-<li>New helpers to get parameters from the configuration file:
-<ul>
-<li><code><a href="../reference/FINANCIAL.TIMESTAMP.html">allowable_asset_list()</a></code></li>
-<li><code><a href="../reference/FINANCIAL.TIMESTAMP.html">inc_metaportfolio()</a></code></li>
-<li><code><a href="../reference/FINANCIAL.TIMESTAMP.html">inc_project_metaportfolio()</a></code></li>
-<li><code><a href="../reference/FINANCIAL.TIMESTAMP.html">inc_metaportfolio()</a></code></li>
-<li><code><a href="../reference/FINANCIAL.TIMESTAMP.html">inc_project_metaportfolio()</a></code></li>
-</ul>
-</li>
-<li>New <code><a href="../reference/create_config.html">create_config()</a></code> helps create configuration files for examples and tests.</li>
-<li>Deprecate <code><a href="../reference/USER.NAME.html">DROPBOX.PATH()</a></code>.</li>
-<li>New <code><a href="../reference/path_dropbox_2dii.html">path_dropbox_2dii()</a></code> improves <code><a href="../reference/USER.NAME.html">DROPBOX.PATH()</a></code> with better name and documentation (<a href='https://github.com/2DegreesInvesting/r2dii.utils/issues/2'>#2</a>; thanks <a href='https://github.com/cjyetman'>@cjyetman</a>, <a href='https://github.com/pranavpandya84'>@pranavpandya84</a>).</li>
-<li>New functions to handle paths, to handle the configuration file, and miscellaneous.</li>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Create a configuration file</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>create_config</span>(<span class='no'>...</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/file_temp.html'>file_temp</a></span>(<span class='st'>"config-"</span>, <span class='kw'>ext</span> <span class='kw'>=</span> <span class='st'>".yml"</span>))</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>String(s) to pass to the <code>...</code> argument of <code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>String giving the path where to save the configuration file.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Invisible <code>path</code>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='FINANCIAL.TIMESTAMP.html'>FINANCIAL.TIMESTAMP</a></p>
+<p>Other functions to deal with configuration files: <code><a href='default_config.html'>default_config</a></code>,
+  <code><a href='edit_config.html'>edit_config</a></code>, <code><a href='show_config.html'>show_config</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>create_config</span>(<span class='st'>"
+  default:
+    field: value
+"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/RtmpSOciME/config-3202361eb62a.yml'.</div><div class='input'><span class='no'>out</span></div><div class='output co'>#&gt; /tmp/RtmpSOciME/config-3202361eb62a.yml</div><div class='input'>
+<span class='fu'><a href='show_config.html'>show_config</a></span>(<span class='no'>out</span>)</div><div class='output co'>#&gt;   default:
+#&gt;     field: value</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#r2dii-utils-0-0-0-9000">0.0.0.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 
