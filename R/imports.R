@@ -1,4 +1,4 @@
 #' @importFrom glue glue
 #' @importFrom rlang inform warn abort %||%
-#' @importFrom usethis ui_field ui_code
+#' @importFrom usethis ui_field ui_code ui_path
 NULL

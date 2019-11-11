@@ -19,6 +19,7 @@ BugReports:
 Imports: 
     config,
     dplyr,
+    ellipsis,
     fs,
     glue,
     lifecycle,
