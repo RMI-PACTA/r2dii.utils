@@ -155,7 +155,7 @@ DATASTORE.TIMESTAMP <- get_param(
 #' DATAPREP.TIMESTAMP()
 DATAPREP.TIMESTAMP <- get_param(
   "TimeStamps", "DataPrep.Timestamp",
-  if_null = NULL
+  if_null = stop
 )
 #' @rdname FINANCIAL.TIMESTAMP
 #' @export

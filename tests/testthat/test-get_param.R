@@ -77,3 +77,17 @@ test_that("FINANCIAL.TIMESTAMP with defaults outputs 'DONT-DELETE'", {
   default_config <- suppressWarnings(default_config())
   expect_equal(FINANCIAL.TIMESTAMP(file = default_config), "DONT-DELETE")
 })
+
+test_that("DATAPREP.TIMESTAMP errors if param is `NULL` (#8 thanks @Clare2D)", {
+  config_text <- glue::glue("
+   default:
+     a_field: a_value
+ ")
+  config <- tempfile()
+  readr::write_lines(config_text, config)
+
+  expect_error(
+    DATAPREP.TIMESTAMP(config),
+    "must be not `NULL`"
+  )
+})
