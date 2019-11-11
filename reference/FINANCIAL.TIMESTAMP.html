@@ -259,10 +259,19 @@ field.</p>
 #&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>HasRISK</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
 #&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>HasMAP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
 #&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>HasSB</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>inc_metaportfolio</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; <span class='warning'>Warning: On config.yml, CreateMetaPortfolio is undefined.</span></div><div class='output co'>#&gt; <span class='message'>Setting CreateMetaPortfolio to default value: FALSE.</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>inc_project_metaportfolio</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; <span class='warning'>Warning: On config.yml, CreateProjectMetaPortfolio is undefined.</span></div><div class='output co'>#&gt; <span class='message'>Setting CreateProjectMetaPortfolio to default value: FALSE.</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>allowable_asset_list</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; <span class='warning'>Warning: On config.yml, AssetTypes is undefined.</span></div><div class='output co'>#&gt; <span class='message'>Setting AssetTypes to default value: Funds, Equity, Bonds, Others.</span></div><div class='output co'>#&gt; [1] "Funds"  "Equity" "Bonds"  "Others"</div></pre>
+#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
+  default:
+    ComparisonBenchmarks:
+      CreateMetaPortfolio: a_value
+"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/Rtmpc0oSRZ/config-31a53038073c.yml'.</div><div class='input'><span class='fu'>inc_metaportfolio</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
+  default:
+    ComparisonBenchmarks:
+      CreateProjectMetaPortfolio: a_value
+"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/Rtmpc0oSRZ/config-31a56a718ac9.yml'.</div><div class='input'><span class='fu'>inc_project_metaportfolio</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
+  default:
+    Lists:
+      AssetTypes: a_value
+"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/Rtmpc0oSRZ/config-31a52b98a0d6.yml'.</div><div class='input'><span class='fu'>allowable_asset_list</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
