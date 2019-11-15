@@ -17,6 +17,6 @@ dropbox_exists()
 }
 \seealso{
 Other miscellaneous utility functions: \code{\link{degrees}},
-  \code{\link{r2dii_packages}}
+  \code{\link{path_examples}}, \code{\link{r2dii_packages}}
 }
 \concept{miscellaneous utility functions}

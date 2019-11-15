@@ -18,6 +18,6 @@ glue::glue("2{degrees()} Investing Initiative")
 }
 \seealso{
 Other miscellaneous utility functions: \code{\link{dropbox_exists}},
-  \code{\link{r2dii_packages}}
+  \code{\link{path_examples}}, \code{\link{r2dii_packages}}
 }
 \concept{miscellaneous utility functions}
