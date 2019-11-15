@@ -1,5 +1,6 @@
 # r2dii.utils 0.0.0.9000
 
+* New `path_examples()` and `path_example()` helps create paths to any package.
 * New helpers to get parameters from the configuration file (#9 @Clare2D):
     * `allowable_asset_list()`
     * `inc_metaportfolio()`
