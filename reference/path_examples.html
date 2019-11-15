@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Insert the symbol for degrees — degrees • r2dii.utils</title>
+<title>Paths to examples in any package — path_examples • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Insert the symbol for degrees — degrees" />
-<meta property="og:description" content="Insert the symbol for degrees" />
+<meta property="og:title" content="Paths to examples in any package — path_examples" />
+<meta property="og:description" content="Paths to examples in any package" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,32 +117,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Insert the symbol for degrees</h1>
-    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/degree.R'><code>R/degree.R</code></a></small>
-    <div class="hidden name"><code>degrees.Rd</code></div>
+    <h1>Paths to examples in any package</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/path_examples.R'><code>R/path_examples.R</code></a></small>
+    <div class="hidden name"><code>path_examples.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Insert the symbol for degrees</p>
+    <p>Paths to examples in any package</p>
     </div>
 
-    <pre class="usage"><span class='fu'>degrees</span>()</pre>
+    <pre class="usage"><span class='fu'>path_examples</span>(<span class='no'>package</span>)
 
+<span class='fu'>path_example</span>(<span class='no'>path</span>, <span class='no'>package</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>package</th>
+      <td><p>Character string giving the name of a single package. <code>NULL</code>
+defaults to the current</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>Name of file.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A string.</p>
+    
+<ul>
+<li><p><code>path_example()</code>: A path to a single example.</p></li>
+<li><p><code>path_examples()</code>: A character vector of all built-in examples.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other miscellaneous utility functions: <code><a href='dropbox_exists.html'>dropbox_exists</a></code>,
-  <code><a href='path_examples.html'>path_examples</a></code>, <code><a href='r2dii_packages.html'>r2dii_packages</a></code></p></div>
+    <div class='dont-index'><p>Other miscellaneous utility functions: <code><a href='degrees.html'>degrees</a></code>,
+  <code><a href='dropbox_exists.html'>dropbox_exists</a></code>,
+  <code><a href='r2dii_packages.html'>r2dii_packages</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>degrees</span>()</div><div class='output co'>#&gt; [1] "°"</div><div class='input'><span class='kw pkg'>glue</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue</a></span>(<span class='st'>"2{degrees()} Investing Initiative"</span>)</div><div class='output co'>#&gt; 2° Investing Initiative</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>path_examples</span>(<span class='st'>"readr"</span>)</div><div class='output co'>#&gt; [1] "challenge.csv"     "epa78.txt"         "example.log"      
+#&gt; [4] "fwf-sample.txt"    "massey-rating.txt" "mtcars.csv"       
+#&gt; [7] "mtcars.csv.bz2"    "mtcars.csv.zip"   </div><div class='input'><span class='fu'>path_example</span>(<span class='st'>"mtcars.csv"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"readr"</span>)</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/readr/extdata/mtcars.csv"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
