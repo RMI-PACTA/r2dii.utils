@@ -3,7 +3,7 @@
 \name{path_examples}
 \alias{path_examples}
 \alias{path_example}
-\title{Paths to examples in any package}
+\title{Paths to example data installed in any package at \code{.libPaths()}}
 \usage{
 path_examples(package)
 
@@ -22,7 +22,7 @@ defaults to the current}
 }
 }
 \description{
-Paths to examples in any package
+Paths to example data installed in any package at \code{.libPaths()}
 }
 \examples{
 path_examples("readr")

@@ -1,4 +1,4 @@
-#' Paths to examples in any package
+#' Paths to example data installed in any package at `.libPaths()`
 #'
 #' @param path Name of file.
 #' @param package Character string giving the name of a single package. `NULL`
@@ -16,11 +16,13 @@
 #' path_examples("readr")
 #' path_example("mtcars.csv", package = "readr")
 path_examples <- function(package) {
-  dir(system.file("extdata", package = package))
+  dir(system.file("extdata", package = package, lib.loc = .libPaths()))
 }
 
 #' @rdname path_examples
 #' @export
 path_example <- function(path, package) {
-  system.file("extdata", path, package = package, mustWork = TRUE)
+  system.file(
+    "extdata", path, package = package, mustWork = TRUE, lib.loc = .libPaths()
+  )
 }
