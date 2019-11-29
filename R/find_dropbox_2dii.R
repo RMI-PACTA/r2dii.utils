@@ -34,10 +34,10 @@
 #' @export
 #'
 #' @examples
-#' # If the output path doesn't exist, path_dropbox_2dii() doesn't care
+#' # If it points to a nonexistent directory, path_dropbox_2dii() doesn't care
 #' path_dropbox_2dii("path", "to", "nowhere")
 #'
-#' # find_dropbox_2dii() checks that the outputs is an existing path
+#' # find_dropbox_2dii() points to an existing directory or tells you if not:
 #' # * It is a warning if the Dropbox folder exists but not the nested path
 #' # * It is an error if the Dropbox folder does not exist:
 #' restore <- options(r2dii_dropbox = "No Dropbox folder here")
@@ -69,7 +69,7 @@ abort_if_not_dropbox_exists <- function() {
     )
 
     abort(glue("
-      The path to 2dii's Dropbox folder must exist, but this path doesn't:
+      2dii's Dropbox folder must exist, but this directory doesn't:
       {ui_path(path_dropbox_2dii())}
       Did you add your custom Dropbox folder in .Rprofile? Example:
       {code_example}

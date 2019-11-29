@@ -58,6 +58,6 @@ test_that("find_dropbox_2dii errros if returned path doesn't exist", {
 
   expect_warning(
     find_dropbox_2dii("path", "to", "nowhere"),
-    "path.*doesn't exist"
+    "directory doesn't exist"
   )
 })
