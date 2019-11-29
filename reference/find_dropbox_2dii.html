@@ -183,15 +183,18 @@ you may add this to .Rprofile (see <code><a href='https://usethis.r-lib.org/refe
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># If the output path doesn't exist, path_dropbox_2dii() doesn't care</span>
 <span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"nowhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/nowhere</div><div class='input'>
-<span class='co'># If the output path doesn't exist, find_dropbox_2dii() throws a condition.</span>
+<span class='co'># find_dropbox_2dii() checks that the outputs is an existing path</span>
 <span class='co'># * It is a warning if the Dropbox folder exists but not the nested path</span>
 <span class='co'># * It is an error if the Dropbox folder does not exist:</span>
 <span class='no'>restore</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_dropbox</span> <span class='kw'>=</span> <span class='st'>"No Dropbox folder here"</span>)
 
 <span class='fu'><a href='dropbox_exists.html'>dropbox_exists</a></span>()</div><div class='output co'>#&gt; /home/travis/No Dropbox folder here 
 #&gt;                               FALSE </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(
-  <span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"nowhere"</span>)
-)</div><div class='output co'>#&gt; /home/travis/No Dropbox folder here/path/to/nowhere</div><div class='input'>
+  <span class='fu'>find_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"nowhere"</span>)
+)</div><div class='output co'>#&gt; Error :   The path to 2dii's Dropbox folder must exist, but this path doesn't:
+#&gt;   '/home/travis/No Dropbox folder here'
+#&gt;   Did you add your custom Dropbox folder in .Rprofile? Example:
+#&gt;   `options(r2dii_dropbox = 'Name of your 2dii Dropbox folder')`</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>restore</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
