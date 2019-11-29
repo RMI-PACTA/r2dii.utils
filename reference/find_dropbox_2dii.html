@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a configuration file — create_config • r2dii.utils</title>
+<title>Easily access directories in your local copy of 2dii's Dropbox folder — find_dropbox_2dii • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,15 @@
 
 
 
-<meta property="og:title" content="Create a configuration file — create_config" />
-<meta property="og:description" content="Create a configuration file" />
+<meta property="og:title" content="Easily access directories in your local copy of 2dii's Dropbox folder — find_dropbox_2dii" />
+<meta property="og:description" content="These functions create cross-platform paths pointing to 2dii's Dropbox
+folder:
+find_dropbox_2dii() is user-oriented; it checks the output is an existing
+path.
+path_dropbox_2dii() is low-level, developer-oriented; it doesn't care
+if the output is not an existing path.
+
+" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,54 +124,83 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a configuration file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/create_config.R'><code>R/create_config.R</code></a></small>
-    <div class="hidden name"><code>create_config.Rd</code></div>
+    <h1>Easily access directories in your local copy of 2dii's Dropbox folder</h1>
+    <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/path_dropbox_2dii.R'><code>R/path_dropbox_2dii.R</code></a></small>
+    <div class="hidden name"><code>find_dropbox_2dii.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a configuration file</p>
+    <p>These functions create cross-platform paths pointing to 2dii's Dropbox
+folder:</p><ul>
+<li><p><code>find_dropbox_2dii()</code> is user-oriented; it checks the output is an existing
+path.</p></li>
+<li><p><code>path_dropbox_2dii()</code> is low-level, developer-oriented; it doesn't care
+if the output is not an existing path.</p></li>
+</ul>
+
     </div>
 
-    <pre class="usage"><span class='fu'>create_config</span>(<span class='no'>...</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/file_temp.html'>file_temp</a></span>(<span class='st'>"config-"</span>, <span class='kw'>ext</span> <span class='kw'>=</span> <span class='st'>".yml"</span>))</pre>
+    <pre class="usage"><span class='fu'>find_dropbox_2dii</span>(<span class='no'>...</span>)
+
+<span class='fu'>path_dropbox_2dii</span>(<span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>String(s) to pass to the <code>...</code> argument of <code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue()</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>path</th>
-      <td><p>String giving the path where to save the configuration file.</p></td>
+      <td><p>Character vectors, if any values are <code>NA</code>, the result will also be
+<code>NA</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Invisible <code>path</code>.</p>
+    <p>A character string.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Your projects may need data stored in 2dii's Dropbox folder. Sometimes it is
+convenient to have your projects close to the data. But, in this case, it is
+a bad idea because the path to 2dii's Dropbox folder has a problematic space
+and symbol. (For example, <a href='https://github.com/2DegreesInvesting/resources/issues/51'>RStudio's Git pane may not work</a>.) Instead,
+place your projects somewhere with a sane path, such as
+<code>C:/Users/You/git/project/</code>, and access the data you need with
+<code>path_dropbox_2dii()</code>.</p>
+    <h2 class="hasAnchor" id="setup-for-a-custom-dropbox-folder"><a class="anchor" href="#setup-for-a-custom-dropbox-folder"></a>Setup for a custom Dropbox folder</h2>
+
+    
+
+<p>If the name of your 2dii Dropbox folder is different from the default,
+you may add this to .Rprofile (see <code><a href='https://usethis.r-lib.org/reference/edit.html'>usethis::edit_r_profile()</a></code>):</p><pre>options(r2dii_dropbox = "The name of your custom dropbox folder goes here")
+</pre>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='FINANCIAL.TIMESTAMP.html'>FINANCIAL.TIMESTAMP</a></p>
-<p>Other functions to deal with configuration files: 
-<code><a href='default_config.html'>default_config</a>()</code>,
-<code><a href='edit_config.html'>edit_config</a>()</code>,
-<code><a href='show_config.html'>show_config</a>()</code></p></div>
+    <div class='dont-index'><p><code><a href='degrees.html'>degrees()</a></code>, <code><a href='http://fs.r-lib.org/reference/path_expand.html'>fs::path_home()</a></code>.</p>
+<p>Other functions to output 2dii paths: 
+<code><a href='USER.NAME.html'>USER.NAME</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>create_config</span>(<span class='st'>"
-  default:
-    field: value
-"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/RtmpvOhtpG/config-32043de3697f.yml'.</div><div class='input'><span class='no'>out</span></div><div class='output co'>#&gt; /tmp/RtmpvOhtpG/config-32043de3697f.yml</div><div class='input'>
-<span class='fu'><a href='show_config.html'>show_config</a></span>(<span class='no'>out</span>)</div><div class='output co'>#&gt;   default:
-#&gt;     field: value</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># If the output path doesn't exist, path_dropbox_2dii() doesn't care</span>
+<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"nowhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/nowhere</div><div class='input'>
+<span class='co'># If the output path doesn't exist, find_dropbox_2dii() throws a condition.</span>
+<span class='co'># * It is a warning if the Dropbox folder exists but not the nested path</span>
+<span class='co'># * It is an error if the Dropbox folder does not exist:</span>
+<span class='no'>restore</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_dropbox</span> <span class='kw'>=</span> <span class='st'>"No Dropbox folder here"</span>)
+
+<span class='fu'><a href='dropbox_exists.html'>dropbox_exists</a></span>()</div><div class='output co'>#&gt; /home/travis/No Dropbox folder here 
+#&gt;                               FALSE </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(
+  <span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"nowhere"</span>)
+)</div><div class='output co'>#&gt; /home/travis/No Dropbox folder here/path/to/nowhere</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>restore</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#setup-for-a-custom-dropbox-folder">Setup for a custom Dropbox folder</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
