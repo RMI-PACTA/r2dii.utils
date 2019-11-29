@@ -12,6 +12,14 @@
 #' `C:/Users/You/git/project/`, and access the data you need with
 #' `path_dropbox_2dii()`.
 #'
+#' @section Setup for a custom Dropbox folder:
+#' If the name of your 2dii Dropbox folder is different from the default,
+#' you may add this to .Rprofile (see [usethis::edit_r_profile()]):
+#'
+#' ```
+#' options(r2dii_dropbox = "The name of your custom dropbox folder goes here")
+#' ````
+#'
 #' @param ... Character vectors, if any values are `NA`, the result will also be
 #'   `NA`.
 #'
@@ -25,6 +33,15 @@
 #' path_dropbox_2dii()
 #'
 #' path_dropbox_2dii("path", "to", "somewhere")
+#'
+#' # Using a custom Dropbox folder (see "Setup for a custom Dropbox folder")
+#' restore <- options(r2dii_dropbox = "Custom Dropbox folder")
+#'
+#' path_dropbox_2dii("path", "to", "somewhere")
+#'
+#' options(restore)
 path_dropbox_2dii <- function(...) {
-  fs::path_home(glue("Dropbox (2{degrees()} Investing)"), ...)
+  custom <- getOption("r2dii_dropbox")
+  default <- glue::glue("Dropbox (2{degrees()} Investing)")
+  fs::path_home(custom %||% default, ...)
 }

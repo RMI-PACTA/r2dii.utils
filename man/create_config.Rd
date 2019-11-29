@@ -29,7 +29,9 @@ show_config(out)
 \seealso{
 \link{FINANCIAL.TIMESTAMP}
 
-Other functions to deal with configuration files: \code{\link{default_config}},
-  \code{\link{edit_config}}, \code{\link{show_config}}
+Other functions to deal with configuration files: 
+\code{\link{default_config}()},
+\code{\link{edit_config}()},
+\code{\link{show_config}()}
 }
 \concept{functions to deal with configuration files}

@@ -74,6 +74,7 @@ Replaces \code{dataprep.SetPaths()}.
 
 \link{MASTER.DATA.PATH}
 
-Other functions to output 2dii paths: \code{\link{path_dropbox_2dii}}
+Other functions to output 2dii paths: 
+\code{\link{path_dropbox_2dii}()}
 }
 \concept{functions to output 2dii paths}

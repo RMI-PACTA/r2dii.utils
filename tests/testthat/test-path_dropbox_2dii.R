@@ -30,3 +30,13 @@ test_that("DROPBOX.PATH output is as expected", {
     path_dropbox_2dii()
   )
 })
+
+test_that("r2dii_dropbox_path works with a custom Dropbox folder", {
+  out <- withr::with_options(
+    list(r2dii_dropbox = "custom dropbox"),
+    path_dropbox_2dii("a", "path")
+  )
+
+  pattern <- fs::path("custom dropbox", "a", "path")
+  expect_true(grepl(pattern, out))
+})

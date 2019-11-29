@@ -52,6 +52,7 @@ returns_value_passed_to_if_null()
 \seealso{
 \link{FINANCIAL.TIMESTAMP}
 
-Other functions to get specific 2dii configuration parameters: \code{\link{FINANCIAL.TIMESTAMP}}
+Other functions to get specific 2dii configuration parameters: 
+\code{\link{FINANCIAL.TIMESTAMP}()}
 }
 \concept{functions to get specific 2dii configuration parameters}

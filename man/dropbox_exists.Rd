@@ -16,7 +16,9 @@ Does this computer have a local copy of 2dii's dropbox folder?
 dropbox_exists()
 }
 \seealso{
-Other miscellaneous utility functions: \code{\link{degrees}},
-  \code{\link{path_examples}}, \code{\link{r2dii_packages}}
+Other miscellaneous utility functions: 
+\code{\link{degrees}()},
+\code{\link{path_examples}()},
+\code{\link{r2dii_packages}()}
 }
 \concept{miscellaneous utility functions}

@@ -175,6 +175,7 @@ allowable_asset_list(config)
 \seealso{
 \link{get_param}
 
-Other functions to get specific 2dii configuration parameters: \code{\link{get_param}}
+Other functions to get specific 2dii configuration parameters: 
+\code{\link{get_param}()}
 }
 \concept{functions to get specific 2dii configuration parameters}

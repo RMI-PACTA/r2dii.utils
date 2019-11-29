@@ -25,7 +25,7 @@ Character string.
 that comes with this package.
 \item \code{get_config()} returns a the path to the default configuration file unless
 you set a new path via \code{options(r2dii_config = "a/path/to/your/config.yml")}.
-\item \code{example_config(<path>)} returns a path to a configuration file for
+\item \verb{example_config(<path>)} returns a path to a configuration file for
 examples and tests; \code{example_config()} returns a character string with
 available configuration files for examples.
 }
@@ -50,7 +50,9 @@ get_config()
 \seealso{
 \link{FINANCIAL.TIMESTAMP}
 
-Other functions to deal with configuration files: \code{\link{create_config}},
-  \code{\link{edit_config}}, \code{\link{show_config}}
+Other functions to deal with configuration files: 
+\code{\link{create_config}()},
+\code{\link{edit_config}()},
+\code{\link{show_config}()}
 }
 \concept{functions to deal with configuration files}

@@ -22,17 +22,32 @@ convenient to have your projects close to the data. But, in this case, it is
 a bad idea because the path to 2dii's Dropbox folder has a problematic space
 and symbol. (For example, \href{https://github.com/2DegreesInvesting/resources/issues/51}{RStudio's Git pane may not work}.) Instead,
 place your projects somewhere with a sane path, such as
-\code{C:/Users/You/git/project/}, and access the data you need with
+\verb{C:/Users/You/git/project/}, and access the data you need with
 \code{path_dropbox_2dii()}.
 }
+\section{Setup for a custom Dropbox folder}{
+
+If the name of your 2dii Dropbox folder is different from the default,
+you may add this to .Rprofile (see \code{\link[usethis:edit_r_profile]{usethis::edit_r_profile()}}):\preformatted{options(r2dii_dropbox = "The name of your custom dropbox folder goes here")
+}
+}
+
 \examples{
 path_dropbox_2dii()
 
 path_dropbox_2dii("path", "to", "somewhere")
+
+# Using a custom Dropbox folder (see "Setup for a custom Dropbox folder")
+restore <- options(r2dii_dropbox = "Custom Dropbox folder")
+
+path_dropbox_2dii("path", "to", "somewhere")
+
+options(restore)
 }
 \seealso{
 \code{\link[=degrees]{degrees()}}, \code{\link[fs:path_home]{fs::path_home()}}.
 
-Other functions to output 2dii paths: \code{\link{USER.NAME}}
+Other functions to output 2dii paths: 
+\code{\link{USER.NAME}()}
 }
 \concept{functions to output 2dii paths}

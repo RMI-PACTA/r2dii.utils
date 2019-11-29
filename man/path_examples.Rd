@@ -29,8 +29,9 @@ path_examples("readr")
 path_example("mtcars.csv", package = "readr")
 }
 \seealso{
-Other miscellaneous utility functions: \code{\link{degrees}},
-  \code{\link{dropbox_exists}},
-  \code{\link{r2dii_packages}}
+Other miscellaneous utility functions: 
+\code{\link{degrees}()},
+\code{\link{dropbox_exists}()},
+\code{\link{r2dii_packages}()}
 }
 \concept{miscellaneous utility functions}

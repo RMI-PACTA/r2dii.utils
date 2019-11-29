@@ -19,10 +19,11 @@ DATA.STORE.PATH(...)
 ANALYSIS.INPUTS.PATH(...)
 }
 \arguments{
-\item{...}{Arguments passed on to \code{fs::path_wd}
-\describe{
-  \item{ext}{An optional extension to append to the generated path.}
-}}
+\item{...}{
+  Arguments passed on to \code{\link[fs:path_wd]{fs::path_wd}}
+  \describe{
+    \item{\code{ext}}{An optional extension to append to the generated path.}
+  }}
 }
 \value{
 A character string.
