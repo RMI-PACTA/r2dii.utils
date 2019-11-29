@@ -103,16 +103,8 @@ GIT.PATH <- function(...) {
     ...
   )
 
-  warn_if_dir_does_not_exist(out)
+  warn_if_not_dir_exists(out)
   out
-}
-
-warn_if_dir_does_not_exist <- function(x) {
-  if (!fs::dir_exists(x)) {
-    warn(glue("The output path doesn't exist. Do you need to create it?"))
-  }
-
-  invisible(x)
 }
 
 #' @rdname USER.NAME

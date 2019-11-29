@@ -1,5 +1,6 @@
 # r2dii.utils 0.0.0.9000
 
+* New `find_dropbox_2dii()` finds existing paths in 2dii's Dropbox folder (#1 @cjyetman).
 * New option `r2dii_dropbox` allows setup for a custom 2dii Dropbox folder (#1 @cjyetman).
 * New `path_examples()` and `path_example()` helps create paths to any package.
 * New helpers to get parameters from the configuration file (#9 @Clare2D):

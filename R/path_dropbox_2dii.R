@@ -1,7 +1,11 @@
 #' Easily access directories in your local copy of 2dii's Dropbox folder
 #'
-#'
-#' This function creates cross-platform paths pointing to 2dii's Dropbox folder.
+#' These functions create cross-platform paths pointing to 2dii's Dropbox
+#' folder:
+#' * `find_dropbox_2dii()` is user-oriented; it checks the output is an existing
+#'   path.
+#' * `path_dropbox_2dii()` is low-level, developer-oriented; it doesn't care
+#'   if the output is not an existing path.
 #'
 #' Your projects may need data stored in 2dii's Dropbox folder. Sometimes it is
 #' convenient to have your projects close to the data. But, in this case, it is
@@ -30,18 +34,47 @@
 #' @export
 #'
 #' @examples
-#' path_dropbox_2dii()
+#' # If the output path doesn't exist, path_dropbox_2dii() doesn't care
+#' path_dropbox_2dii("path", "to", "nowhere")
 #'
-#' path_dropbox_2dii("path", "to", "somewhere")
+#' # If the output path doesn't exist, find_dropbox_2dii() throws a condition.
+#' # * It is a warning if the Dropbox folder exists but not the nested path
+#' # * It is an error if the Dropbox folder does not exist:
+#' restore <- options(r2dii_dropbox = "No Dropbox folder here")
 #'
-#' # Using a custom Dropbox folder (see "Setup for a custom Dropbox folder")
-#' restore <- options(r2dii_dropbox = "Custom Dropbox folder")
-#'
-#' path_dropbox_2dii("path", "to", "somewhere")
+#' dropbox_exists()
+#' try(
+#'   path_dropbox_2dii("path", "to", "nowhere")
+#' )
 #'
 #' options(restore)
+find_dropbox_2dii <- function(...) {
+  abort_if_not_dropbox_exists()
+  out <- warn_if_not_dir_exists(path_dropbox_2dii(...))
+  out
+}
+
+#' @rdname find_dropbox_2dii
+#' @export
 path_dropbox_2dii <- function(...) {
   custom <- getOption("r2dii_dropbox")
   default <- glue::glue("Dropbox (2{degrees()} Investing)")
   fs::path_home(custom %||% default, ...)
+}
+
+abort_if_not_dropbox_exists <- function() {
+  if (!dropbox_exists()) {
+    code_example <- usethis::ui_code(
+      "options(r2dii_dropbox = 'Name of your 2dii Dropbox folder')"
+    )
+
+    abort(glue("
+      The path to 2dii's Dropbox folder must exist, but this path doesn't:
+      {ui_path(path_dropbox_2dii())}
+      Did you add your custom Dropbox folder in .Rprofile? Example:
+      {code_example}
+    "))
+  }
+
+  invisible()
 }

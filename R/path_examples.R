@@ -23,6 +23,7 @@ path_examples <- function(package) {
 #' @export
 path_example <- function(path, package) {
   system.file(
-    "extdata", path, package = package, mustWork = TRUE, lib.loc = .libPaths()
+    "extdata", path,
+    package = package, mustWork = TRUE, lib.loc = .libPaths()
   )
 }

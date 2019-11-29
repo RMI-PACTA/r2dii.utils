@@ -40,3 +40,24 @@ test_that("r2dii_dropbox_path works with a custom Dropbox folder", {
   pattern <- fs::path("custom dropbox", "a", "path")
   expect_true(grepl(pattern, out))
 })
+
+test_that("find_dropbox_2dii returns a path to an existing path", {
+  skip_if_not(dropbox_exists())
+
+  expect_true(fs::dir_exists(find_dropbox_2dii()))
+})
+
+test_that("find_dropbox_2dii errros if returned path doesn't exist", {
+  withr::local_options(list(r2dii_dropbox = "Wrong Dropbox"))
+
+  expect_error(find_dropbox_2dii(), "Dropbox.*must exist")
+})
+
+test_that("find_dropbox_2dii errros if returned path doesn't exist", {
+  skip_if_not(dropbox_exists())
+
+  expect_warning(
+    find_dropbox_2dii("path", "to", "nowhere"),
+    "path.*doesn't exist"
+  )
+})
