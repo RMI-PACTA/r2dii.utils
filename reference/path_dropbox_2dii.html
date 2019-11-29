@@ -150,14 +150,28 @@ and symbol. (For example, <a href='https://github.com/2DegreesInvesting/resource
 place your projects somewhere with a sane path, such as
 <code>C:/Users/You/git/project/</code>, and access the data you need with
 <code>path_dropbox_2dii()</code>.</p>
+    <h2 class="hasAnchor" id="setup-for-a-custom-dropbox-folder"><a class="anchor" href="#setup-for-a-custom-dropbox-folder"></a>Setup for a custom Dropbox folder</h2>
+
+    
+
+<p>If the name of your 2dii Dropbox folder is different from the default,
+you may add this to .Rprofile (see <code><a href='https://usethis.r-lib.org/reference/edit.html'>usethis::edit_r_profile()</a></code>):</p><pre>options(r2dii_dropbox = "The name of your custom dropbox folder goes here")
+</pre>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='degrees.html'>degrees()</a></code>, <code><a href='http://fs.r-lib.org/reference/path_expand.html'>fs::path_home()</a></code>.</p>
-<p>Other functions to output 2dii paths: <code><a href='USER.NAME.html'>USER.NAME</a></code></p></div>
+<p>Other functions to output 2dii paths: 
+<code><a href='USER.NAME.html'>USER.NAME</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>path_dropbox_2dii</span>()</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)</div><div class='input'>
-<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/somewhere</div></pre>
+<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Dropbox (2° Investing)/path/to/somewhere</div><div class='input'>
+<span class='co'># Using a custom Dropbox folder (see "Setup for a custom Dropbox folder")</span>
+<span class='no'>restore</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_dropbox</span> <span class='kw'>=</span> <span class='st'>"Custom Dropbox folder"</span>)
+
+<span class='fu'>path_dropbox_2dii</span>(<span class='st'>"path"</span>, <span class='st'>"to"</span>, <span class='st'>"somewhere"</span>)</div><div class='output co'>#&gt; /home/travis/Custom Dropbox folder/path/to/somewhere</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>restore</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -165,6 +179,7 @@ place your projects somewhere with a sane path, such as
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#setup-for-a-custom-dropbox-folder">Setup for a custom Dropbox folder</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
