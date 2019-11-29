@@ -37,14 +37,14 @@
 #' # If the output path doesn't exist, path_dropbox_2dii() doesn't care
 #' path_dropbox_2dii("path", "to", "nowhere")
 #'
-#' # If the output path doesn't exist, find_dropbox_2dii() throws a condition.
+#' # find_dropbox_2dii() checks that the outputs is an existing path
 #' # * It is a warning if the Dropbox folder exists but not the nested path
 #' # * It is an error if the Dropbox folder does not exist:
 #' restore <- options(r2dii_dropbox = "No Dropbox folder here")
 #'
 #' dropbox_exists()
 #' try(
-#'   path_dropbox_2dii("path", "to", "nowhere")
+#'   find_dropbox_2dii("path", "to", "nowhere")
 #' )
 #'
 #' options(restore)
