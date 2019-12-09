@@ -24,6 +24,7 @@ Imports:
     ellipsis,
     fs,
     glue,
+    highlight (>= 0.5.0.9000),
     lifecycle,
     purrr,
     readr,
@@ -33,6 +34,8 @@ Suggests:
     pkgdown,
     testthat (>= 2.1.0),
     withr
+Remotes: 
+    romainfrancois/highlight
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
