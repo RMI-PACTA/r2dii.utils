@@ -17,7 +17,7 @@ URL: https://github.com/2DegreesInvesting/r2dii.utils
 BugReports: 
     https://github.com/2DegreesInvesting/r2dii.utils/issues
 Depends: 
-    R (>= 3.2)
+    R (>= 3.3)
 Imports: 
     config,
     dplyr,
