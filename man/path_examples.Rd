@@ -30,6 +30,7 @@ path_example("mtcars.csv", package = "readr")
 }
 \seealso{
 Other miscellaneous utility functions: 
+\code{\link{check_crucial_names}()},
 \code{\link{degrees}()},
 \code{\link{dropbox_exists}()},
 \code{\link{r2dii_packages}()}

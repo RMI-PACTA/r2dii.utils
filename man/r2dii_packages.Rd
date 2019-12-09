@@ -17,6 +17,7 @@ r2dii_packages()
 }
 \seealso{
 Other miscellaneous utility functions: 
+\code{\link{check_crucial_names}()},
 \code{\link{degrees}()},
 \code{\link{dropbox_exists}()},
 \code{\link{path_examples}()}

@@ -9,6 +9,8 @@
 #' @return Invisible `x`, or an error with informative message.
 #' @export
 #'
+#' @family miscellaneous utility functions
+#'
 #' @examples
 #' v <- c(name_a = 1)
 #' check_crucial_names(v, "name_a")

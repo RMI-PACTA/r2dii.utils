@@ -27,3 +27,11 @@ df <- data.frame(name_a = 1)
 check_crucial_names(df, "name_a")
 try(check_crucial_names(df, "name_b"))
 }
+\seealso{
+Other miscellaneous utility functions: 
+\code{\link{degrees}()},
+\code{\link{dropbox_exists}()},
+\code{\link{path_examples}()},
+\code{\link{r2dii_packages}()}
+}
+\concept{miscellaneous utility functions}
