@@ -2,7 +2,7 @@
 % Please edit documentation in R/unclean_names.R
 \name{unclean_names}
 \alias{unclean_names}
-\title{Revert the effect of `clean_names_and_groups()``}
+\title{Revert the effect of \code{clean_names_and_groups()}}
 \usage{
 unclean_names(data, unclean)
 }
@@ -13,7 +13,7 @@ unclean_names(data, unclean)
 \code{janitor::clean_names(data)}.}
 }
 \description{
-Revert the effect of `clean_names_and_groups()``
+Revert the effect of \code{clean_names_and_groups()}
 }
 \examples{
 library(dplyr)
@@ -37,3 +37,10 @@ unclean <- tibble(y.y = 1)
 data <- tibble(y = 1)
 data \%>\% unclean_names(unclean)
 }
+\seealso{
+Other functions to deal with unclean names: 
+\code{\link{clean_names_and_groups}()},
+\code{\link{clean_quos}()},
+\code{\link{clean_quo}()}
+}
+\concept{functions to deal with unclean names}

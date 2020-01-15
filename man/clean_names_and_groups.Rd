@@ -20,9 +20,15 @@ library(dplyr)
 
 clean_names_and_groups(group_by(tibble(x.x = 1), x.x))
 
-# Cleans names but not gruops
+# Cleans names but not groups
 janitor::clean_names(group_by(tibble(x.x = 1), x.x))
 }
 \seealso{
-\code{\link[janitor:clean_names]{janitor::clean_names()}}
+\code{\link[janitor:clean_names]{janitor::clean_names()}}, \code{\link[=unclean_names]{unclean_names()}}.
+
+Other functions to deal with unclean names: 
+\code{\link{clean_quos}()},
+\code{\link{clean_quo}()},
+\code{\link{unclean_names}()}
 }
+\concept{functions to deal with unclean names}

@@ -2,7 +2,9 @@
 #'
 #' @param data A dataframe
 #'
-#' @seealso [janitor::clean_names()]
+#' @family functions to deal with unclean names
+#'
+#' @seealso [janitor::clean_names()], [unclean_names()].
 #'
 #' @return A dataframe
 #' @export
@@ -12,17 +14,21 @@
 #'
 #' clean_names_and_groups(group_by(tibble(x.x = 1), x.x))
 #'
-#' # Cleans names but not gruops
+#' # Cleans names but not groups
 #' janitor::clean_names(group_by(tibble(x.x = 1), x.x))
 clean_names_and_groups <- function(data) {
   clean_groups(janitor::clean_names(data))
 }
 
-#' Revert the effect of `clean_names_and_groups()``
+#' Revert the effect of `clean_names_and_groups()`
 #'
 #' @param data A dataframe
 #' @param unclean A dataframe, commonly a version of `data` before running
 #'   `janitor::clean_names(data)`.
+#'
+#' @seealso [janitor::clean_names()], [clean_names_and_groups()].
+#'
+#' @family functions to deal with unclean names
 #'
 #' @export
 #' @examples
@@ -89,4 +95,42 @@ extract_clean_names_from <- function(x, data) {
 
 anchor <- function(x) {
   paste0("^", x, "$")
+}
+
+#' Clean quo expression
+#'
+#' @inheritParams rlang::quo_set_expr
+#'
+#' @family functions to deal with unclean names
+#'
+#' @return A quosure.
+#' @export
+#'
+#' @examples
+#' unclean_quo <- rlang::quo(x.x)
+#' unclean_quo
+#'
+#' clean_quo(unclean_quo)
+clean_quo <- function(quo) {
+  by_unclean <- rlang::quo_squash(quo)
+  by_clean <- janitor::make_clean_names(by_unclean)
+  rlang::quo_set_expr(quo, rlang::sym(by_clean))
+}
+
+#' Clean a list of quosures
+#'
+#' @param quos A list of quosures
+#'
+#' @family functions to deal with unclean names
+#'
+#' @return A list of quosures.
+#' @export
+#'
+#' @examples
+#' quos <- rlang::quos(x.x, y.y)
+#' quos
+#'
+#' clean_quos(quos)
+clean_quos <- function(quos) {
+  purrr::map(quos, clean_quo)
 }
