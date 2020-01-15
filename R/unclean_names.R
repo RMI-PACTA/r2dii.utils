@@ -1,4 +1,24 @@
-#' Revert the effect of [janitor::clean_names()]
+#' A version of [janitor::clean_names()] that also cleans dplyr groups
+#'
+#' @param data A dataframe
+#'
+#' @seealso [janitor::clean_names()]
+#'
+#' @return A dataframe
+#' @export
+#'
+#' @examples
+#' library(dplyr)
+#'
+#' clean_names_and_groups(group_by(tibble(x.x = 1), x.x))
+#'
+#' # Cleans names but not gruops
+#' janitor::clean_names(group_by(tibble(x.x = 1), x.x))
+clean_names_and_groups <- function(data) {
+  clean_groups(janitor::clean_names(data))
+}
+
+#' Revert the effect of `clean_names_and_groups()``
 #'
 #' @param data A dataframe
 #' @param unclean A dataframe, commonly a version of `data` before running
@@ -27,7 +47,33 @@
 #' data <- tibble(y = 1)
 #' data %>% unclean_names(unclean)
 unclean_names <- function(data, unclean) {
+  check_groups(data)
   dplyr::rename(data, !!!extract_unclean_names(data, unclean))
+}
+
+check_groups <- function(data) {
+  g <- dplyr::group_vars(data)
+
+  if (is.null(g)) {
+    return(data)
+  }
+
+  unknown <- setdiff(g, names(data))
+  if (length(unknown) > 0L) {
+    stop(
+      "All groups must be known column names.\n",
+      "Known: ", paste0(names(data), collapse = ", "), "\n",
+      "Unknown: ", paste0(unknown, collapse = ", "),
+      call. = FALSE
+    )
+  }
+
+  invisible(data)
+}
+
+clean_groups <- function(data) {
+  g <- dplyr::group_vars(data)
+  dplyr::grouped_df(data, vars = janitor::make_clean_names(g))
 }
 
 extract_unclean_names <- function(data, unclean) {

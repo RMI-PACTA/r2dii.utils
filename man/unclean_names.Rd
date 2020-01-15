@@ -2,7 +2,7 @@
 % Please edit documentation in R/unclean_names.R
 \name{unclean_names}
 \alias{unclean_names}
-\title{Revert the effect of \code{\link[janitor:clean_names]{janitor::clean_names()}}}
+\title{Revert the effect of `clean_names_and_groups()``}
 \usage{
 unclean_names(data, unclean)
 }
@@ -13,7 +13,7 @@ unclean_names(data, unclean)
 \code{janitor::clean_names(data)}.}
 }
 \description{
-Revert the effect of \code{\link[janitor:clean_names]{janitor::clean_names()}}
+Revert the effect of `clean_names_and_groups()``
 }
 \examples{
 library(dplyr)
