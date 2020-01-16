@@ -10,7 +10,8 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(tidyverse)
+library(dplyr)
+library(purrr)
 library(rlang)
 library(r2dii.utils)
 ```
