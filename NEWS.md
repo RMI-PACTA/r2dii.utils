@@ -1,3 +1,7 @@
+# r2dii.utils 0.0.0.9002
+
+* New family of functions to write code for data with unclean names: `unclean_column_names()`, `clean_column_names()`, `clean_quo()` & `clean_quos()` (#12, #14).
+
 # r2dii.utils 0.0.0.9001
 
 * New `find_dropbox_2dii()` finds existing paths in 2dii's Dropbox folder (#1 @cjyetman).
