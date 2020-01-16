@@ -9,6 +9,50 @@ knitr::opts_chunk$set(
 )
 ```
 
+### tl;dr 
+
+Too long; didn't read?
+
+Use this example to write functions for data with clean column names (`like_this`) or any unclean version (`likeThis` and `like.this`).
+
+```{r}
+suppressPackageStartupMessages(library(dplyr))
+library(rlang)
+library(r2dii.utils)
+
+f <- function(data, ...) {
+  # 1. First, clean data and groups (if any).
+  clean <- clean_column_names(data)
+  dots <- clean_quos(enquos(...))
+  
+  # 2. Then, write your code.
+  result <- clean %>% 
+    group_by(!!! dots) %>% 
+    # If you have to hard-wire column names, always use snake_style.
+    select(x_x)
+  
+  # 3. Last, restore the unclean column names of the original data.
+  result %>% 
+    unclean_column_names(data)
+}
+
+# EXAMPLES 
+
+# snake_stye
+f(tibble(x_x = 1, y_y = 1), x_x)
+
+# dot.style
+f(tibble(x.x = 1, y.y = 1), x.x)
+
+# cammelStyle
+f(tibble(xX = 1, yY = 1), xX)
+
+# Unfortunately, error messages refer to internal colums unknown to the user
+try(f(tibble(xxx = 1), xxx))
+```
+
+### Details
+
 ```{r setup}
 library(dplyr)
 library(purrr)
