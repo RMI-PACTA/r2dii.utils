@@ -25,6 +25,9 @@ f <- function(data, ...) {
   clean <- clean_column_names(data)
   dots <- clean_quos(enquos(...))
   
+  # 2. Ensure `data` has all the clean names that your data uses
+  check_crucial_names(clean, x_x)
+  
   # 2. Then, write your code.
   result <- clean %>% 
     group_by(!!! dots) %>% 
