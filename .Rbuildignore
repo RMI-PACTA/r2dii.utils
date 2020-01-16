@@ -8,3 +8,5 @@
 ^pkgdown$
 .deploy_dir
 ^\.github$
+^vignettes/articles$
+^vignettes$

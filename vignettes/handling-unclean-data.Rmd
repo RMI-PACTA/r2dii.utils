@@ -1,0 +1,153 @@
+---
+title: "handling-unclean-data"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tidyverse)
+library(rlang)
+library(r2dii.utils)
+```
+
+Data with unclean column names is difficult to work with. Sooner or later you'll forget if a column you need is typed `LikeThis`, `likeThis`, `Like.This` or `like.This`. 
+
+Luckily, all of those forms can be cleaned in a unique way with `janitor::make_clean_names()`:
+
+```{r}
+unclean <- c(
+  "LikeThis",
+  "likeThis",
+  "Like.This",
+  "like.This"
+)
+
+unclean %>% map_chr(janitor::make_clean_names)
+```
+
+And now you can work with a clean column name `like_this`. 
+
+Your code will be more maintainable if you always write code for clean names.
+
+But `janitor::clean_names()` seems to lack support for groups, or a way to restore unclean column names and groups so that you clean up after yourself and leave the data as you found it. r2dii.utils has a family of functions dedicated to solving that problem.
+
+* `clean_column_names()` is similar to `janitor::clean_names()`
+
+```{r}
+unclean <- tibble(x.x = c(1, 1, 2, 2), y.y = 1:4)
+
+clean_column_names(unclean)
+
+janitor::clean_names(unclean)
+```
+
+But `clean_column_names()` also clean dplyr groups; `janitor::clean_names()` doesn't.
+
+```{r}
+unclean %>% 
+  group_by(x.x) %>% 
+  janitor::clean_names()
+
+clean <- unclean %>% 
+  group_by(x.x) %>% 
+  clean_column_names()
+
+clean
+```
+
+Now you can work comfortably with clean column names such as `x_x` and `y_y` instead of `x.x` or `y.y`.
+
+```{r}
+result <- clean %>% 
+  mutate(total = sum(y_y))
+
+result
+```
+
+`unclean_column_names()` help you restore the original, unclean column names -- so you leave the data as close as possible to how you found it.
+
+```{r}
+unclean_column_names(result, unclean)
+```
+
+This becomes important when you write functions. If you can't force your users to input clean data, you can clean it yourself, do what you mean to do, then restore the unclean names and return.
+
+```{r}
+sum_y <- function(data) {
+  clean <- clean_column_names(data)
+  
+  result <- clean %>% 
+    mutate(total = sum(y_y))
+  
+  unclean_column_names(result, data)
+}
+
+sum_y(unclean)
+```
+
+### Handling groups
+
+If you functions take groups, you need to clean them too. Here is how:
+
+
+* For one group passed as a string, clean it with `janitor::make_clean_names()`:
+
+```{r}
+sum_y <- function(data, by) {
+  clean <- clean_column_names(data)
+  by <- janitor::make_clean_names(by)
+  
+  result <- clean %>% 
+    group_by(.data[[by]]) %>% 
+    mutate(total = sum(y_y))
+  
+  unclean_column_names(result, data)
+}
+
+sum_y(unclean, by = "x.x")
+```
+
+
+
+
+
+* For one group passed as a symbol, you'll need to capture it as usual with `rlang::enquo()`, then clean it with `clean_quo()` and unquote it with either bang bang `!!` or embrace `{{`:
+
+```{r}
+sum_y <- function(data, by) {
+  clean <- clean_column_names(data)
+  by <- clean_quo(enquo(by))
+  
+  result <- clean %>% 
+    # You can also use `group_by(!!by)`
+    group_by({{ by }}) %>% 
+    mutate(total = sum(y_y))
+  
+  unclean_column_names(result, data)
+}
+
+sum_y(unclean, by = x.x)
+```
+
+* And for multiple groups passed via `...`, you'll need to capture them as usual with `rlang::enquos()`, then clean them with `clean_quo()` and unquote-splice it with big bang `!!!`:
+
+```{r}
+sum_y <- function(data, ...) {
+  clean <- clean_column_names(data)
+  by <- clean_quos(enquos(...))
+  
+  result <- clean %>% 
+    group_by(!!!by) %>%
+    mutate(total = sum(y_y))
+  
+  unclean_column_names(result, data)
+}
+
+sum_y(unclean, x.x, y.y)
+```
+
