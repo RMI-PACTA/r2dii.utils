@@ -16,6 +16,15 @@
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/check_crucial_names.html</loc>
   </url>
   <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/clean_column_names.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/clean_quo.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/clean_quos.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/create_config.html</loc>
   </url>
   <url>
@@ -40,9 +49,15 @@
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/path_examples.html</loc>
   </url>
   <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/pipe.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/r2dii_packages.html</loc>
   </url>
   <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/show_config.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/unclean_column_names.html</loc>
   </url>
 </urlset>
