@@ -50,6 +50,10 @@ reference:
     contents:
       - has_concept("functions to get specific 2dii configuration parameters")
 
+  - title: Handle unclean names
+    contents:
+      - has_concept("functions to deal with unclean names")
+
   - title: Miscellaneous
     contents:
       - has_concept("miscellaneous utility functions")
