@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Clean quo expression — clean_quo • r2dii.utils</title>
+<title>Clean quosure expressions — clean_quo • r2dii.utils</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Clean quo expression — clean_quo" />
-<meta property="og:description" content="Clean quo expression" />
+<meta property="og:title" content="Clean quosure expressions — clean_quo" />
+<meta property="og:description" content="Clean quosure expressions" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">r2dii.utils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
       </span>
     </div>
 
@@ -129,44 +129,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Clean quo expression</h1>
+    <h1>Clean quosure expressions</h1>
     <small class="dont-index">Source: <a href='https://github.com/2DegreesInvesting/r2dii.utils/blob/master/R/unclean_column_names.R'><code>R/unclean_column_names.R</code></a></small>
     <div class="hidden name"><code>clean_quo.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Clean quo expression</p>
+    <p>Clean quosure expressions</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clean_quo</span>(<span class='no'>quo</span>)</pre>
+    <pre class="usage"><span class='fu'>clean_quo</span>(<span class='no'>quo</span>)
+
+<span class='co'># S3 method for quosure</span>
+<span class='fu'>clean_quo</span>(<span class='no'>quo</span>)
+
+<span class='co'># S3 method for quosures</span>
+<span class='fu'>clean_quo</span>(<span class='no'>quo</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>quo</th>
-      <td><p>A quosure to test.</p></td>
+      <td><p>An object of class quosure or of class quosures.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A quosure.</p>
+    <p>A quosure or quosures.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other functions to deal with unclean names: 
 <code><a href='clean_column_names.html'>clean_column_names</a>()</code>,
-<code><a href='clean_quos.html'>clean_quos</a>()</code>,
+<code><a href='quo_chr.html'>quo_chr</a>()</code>,
 <code><a href='unclean_column_names.html'>unclean_column_names</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>unclean_quo</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quo</a></span>(<span class='no'>x.x</span>)
-<span class='no'>unclean_quo</span></div><div class='output co'>#&gt; &lt;quosure&gt;
-#&gt; expr: ^x.x
-#&gt; env:  0x5a82e98</div><div class='input'>
-<span class='fu'>clean_quo</span>(<span class='no'>unclean_quo</span>)</div><div class='output co'>#&gt; &lt;quosure&gt;
+    <pre class="examples"><div class='input'><span class='fu'>clean_quo</span>(<span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quo</a></span>(<span class='no'>x.x</span>))</div><div class='output co'>#&gt; &lt;quosure&gt;
 #&gt; expr: ^x_x
-#&gt; env:  0x5a82e98</div></pre>
+#&gt; env:  0x413cdf8</div><div class='input'>
+<span class='fu'>clean_quo</span>(<span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quos</a></span>(<span class='no'>x.x</span>, <span class='no'>y.y</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; &lt;quosure&gt;
+#&gt; expr: ^x_x
+#&gt; env:  0x413cdf8
+#&gt; 
+#&gt; [[2]]
+#&gt; &lt;quosure&gt;
+#&gt; expr: ^y_y
+#&gt; env:  0x413cdf8
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

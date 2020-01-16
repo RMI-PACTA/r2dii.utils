@@ -22,9 +22,6 @@
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/clean_quo.html</loc>
   </url>
   <url>
-    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/clean_quos.html</loc>
-  </url>
-  <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/create_config.html</loc>
   </url>
   <url>
@@ -50,6 +47,9 @@
   </url>
   <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/quo_chr.html</loc>
   </url>
   <url>
     <loc>https://github.com/2DegreesInvesting/r2dii.utils//reference/r2dii_packages.html</loc>
