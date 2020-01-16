@@ -1,7 +1,7 @@
 # r2dii.utils 0.0.0.9002
 
 * New article on Handling unclean data.
-* New family of functions to write code for data with unclean names: `unclean_column_names()`, `clean_column_names()`, `clean_quo()` & `clean_quos()` (#12, #14).
+* New family of functions to write code for data with unclean names: `unclean_column_names()`, `clean_column_names()`, `clean_quo()`, and the helper `quo_chr()` to convert quosure expressions to strings (#12, #14).
 
 # r2dii.utils 0.0.0.9001
 

@@ -23,7 +23,10 @@ library(r2dii.utils)
 f <- function(data, ...) {
   # 1. First, clean data and groups (if any).
   clean <- clean_column_names(data)
-  dots <- clean_quos(enquos(...))
+  dots <- clean_quo(enquos(...))
+
+  # 2. Ensure `data` has all the clean names that your data uses
+  check_crucial_names(clean, c("x_x", quo_chr(dots)))
   
   # 2. Then, write your code.
   result <- clean %>% 
@@ -47,9 +50,13 @@ f(tibble(x.x = 1, y.y = 1), x.x)
 # cammelStyle
 f(tibble(xX = 1, yY = 1), xX)
 
-# Unfortunately, error messages refer to internal colums unknown to the user
-try(f(tibble(xxx = 1), xxx))
+# Fails: Clean version of the given name isn't the hard-wired clean name
+bad <- tibble(x.x.x = 1)
+names(clean_column_names(bad))
+try(f(bad, x.x.x))
 ```
+
+If your function takes a single group via a named argument (not `...`), capture it with `enquo()` (not `enquos()`) and unquote it with `!!` or `{{` (not `!!!`).
 
 ### Details
 
@@ -170,12 +177,12 @@ sum_y <- function(data, by) {
 sum_y(unclean, by = x.x)
 ```
 
-* And for multiple groups passed via `...`, you'll need to capture them with `rlang::enquos()`, then clean them with `clean_quos()` and unquote-splice it with big bang `!!!`:
+* And for multiple groups passed via `...`, you'll need to capture them with `rlang::enquos()`, then clean them with `clean_quo()` and unquote-splice it with big bang `!!!`:
 
 ```{r}
 sum_y <- function(data, ...) {
   clean <- clean_column_names(data)
-  by <- clean_quos(enquos(...))
+  by <- clean_quo(enquos(...))
   
   result <- clean %>% 
     group_by(!!!by) %>%

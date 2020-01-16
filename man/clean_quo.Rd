@@ -2,29 +2,34 @@
 % Please edit documentation in R/unclean_column_names.R
 \name{clean_quo}
 \alias{clean_quo}
-\title{Clean quo expression}
+\alias{clean_quo.quosure}
+\alias{clean_quo.quosures}
+\title{Clean quosure expressions}
 \usage{
 clean_quo(quo)
+
+\method{clean_quo}{quosure}(quo)
+
+\method{clean_quo}{quosures}(quo)
 }
 \arguments{
-\item{quo}{A quosure to test.}
+\item{quo}{An object of class quosure or of class quosures.}
 }
 \value{
-A quosure.
+A quosure or quosures.
 }
 \description{
-Clean quo expression
+Clean quosure expressions
 }
 \examples{
-unclean_quo <- rlang::quo(x.x)
-unclean_quo
+clean_quo(rlang::quo(x.x))
 
-clean_quo(unclean_quo)
+clean_quo(rlang::quos(x.x, y.y))
 }
 \seealso{
 Other functions to deal with unclean names: 
 \code{\link{clean_column_names}()},
-\code{\link{clean_quos}()},
+\code{\link{quo_chr}()},
 \code{\link{unclean_column_names}()}
 }
 \concept{functions to deal with unclean names}

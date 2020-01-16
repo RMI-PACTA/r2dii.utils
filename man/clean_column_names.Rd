@@ -27,8 +27,8 @@ janitor::clean_names(group_by(tibble(x.x = 1), x.x))
 \code{\link[janitor:clean_names]{janitor::clean_names()}}, \code{\link[=unclean_column_names]{unclean_column_names()}}.
 
 Other functions to deal with unclean names: 
-\code{\link{clean_quos}()},
 \code{\link{clean_quo}()},
+\code{\link{quo_chr}()},
 \code{\link{unclean_column_names}()}
 }
 \concept{functions to deal with unclean names}
