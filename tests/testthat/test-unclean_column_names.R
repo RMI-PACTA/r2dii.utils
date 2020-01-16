@@ -161,3 +161,9 @@ test_that("unclean_column_names works with one group passes to ...", {
   expect_equal(out$z, out$y.y)
   expect_equal(group_vars(out), c("x.x", "y.y"))
 })
+
+test_that("unclean_column_names with ungrouped data returns ungouped data", {
+  unclean <- clean <- tibble(x = 1)
+  out <- unclean_column_names(clean, unclean)
+  expect_false(dplyr::is_grouped_df(out))
+})

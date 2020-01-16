@@ -60,7 +60,7 @@ unclean_column_names <- function(data, unclean) {
 check_groups <- function(data) {
   g <- dplyr::group_vars(data)
 
-  if (is.null(g)) {
+  if (identical(length(g), 0L)) {
     return(data)
   }
 
