@@ -120,8 +120,7 @@
 <a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;     flatten_lgl, flatten_raw, invoke, list_along, modify, prepend,</span></a>
 <a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;     splice</span></a>
 <a class="sourceLine" id="cb1-19" data-line-number="19"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(r2dii.utils)</a></code></pre></div>
-<p>Data with unclean column names is difficult to work with. Sooner or later you’ll forget if a column you need is typed <code>LikeThis</code>, <code>likeThis</code>, <code>Like.This</code> or <code>like.This</code>.</p>
-<p>Luckily, all of those forms can be cleaned in a unique way with <code><a href="https://rdrr.io/pkg/janitor/man/make_clean_names.html">janitor::make_clean_names()</a></code>:</p>
+<p>Data with unclean column names is difficult to work with. Sooner or later you’ll forget if a column you need is typed <code>LikeThis</code>, <code>likeThis</code>, <code>Like.This</code> or <code>like.This</code>. Luckily, all of those forms can be cleaned in a unique way with <code><a href="https://rdrr.io/pkg/janitor/man/make_clean_names.html">janitor::make_clean_names()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">unclean &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="st">"LikeThis"</span>,</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="st">"likeThis"</span>,</a>
@@ -132,12 +131,10 @@
 <a class="sourceLine" id="cb2-8" data-line-number="8">unclean <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map_chr</a></span>(janitor<span class="op">::</span>make_clean_names)</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] "like_this" "like_this" "like_this" "like_this"</span></a></code></pre></div>
 <p>And now you can work with a clean column name <code>like_this</code>.</p>
-<p>Your code will be more maintainable if you always write code for clean names.</p>
-<p>But <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code> seems to lack support for groups, or a way to restore unclean column names and groups so that you clean up after yourself and leave the data as you found it. r2dii.utils has a family of functions dedicated to solving that problem.</p>
+<p>Your code will be more maintainable if you always write code for clean names. But <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code> seems to lack support for groups, or a way to restore unclean column names and groups so that you clean up after yourself and leave the data as you found it. r2dii.utils has a family of functions dedicated to solving that problem:</p>
 <ul>
 <li>
-<code><a href="../reference/clean_column_names.html">clean_column_names()</a></code> is similar to <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code>
-</li>
+<code><a href="../reference/clean_column_names.html">clean_column_names()</a></code> is similar to <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code>.</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">unclean &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="dt">x.x =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">y.y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
@@ -158,7 +155,7 @@
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; 2     1     2</span></a>
 <a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; 3     2     3</span></a>
 <a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; 4     2     4</span></a></code></pre></div>
-<p>But <code><a href="../reference/clean_column_names.html">clean_column_names()</a></code> also clean dplyr groups; <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code> doesn’t.</p>
+<p>But <code><a href="../reference/clean_column_names.html">clean_column_names()</a></code> also cleans dplyr groups; <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code> doesn’t.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">unclean <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(x.x) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span>janitor<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span>()</a>
@@ -184,7 +181,7 @@
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt; 2     1     2</span></a>
 <a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt; 3     2     3</span></a>
 <a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; 4     2     4</span></a></code></pre></div>
-<p>Now you can work comfortably with clean column names such as <code>x_x</code> and <code>y_y</code> instead of <code>x.x</code> or <code>y.y</code>.</p>
+<p>Now you can work comfortably with clean column names such as <code>x_x</code> and <code>y_y</code> instead of unclean column names such as <code>x.x</code> or <code>y.y</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">result &lt;-<span class="st"> </span>clean <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">total =</span> <span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(y_y))</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
@@ -197,7 +194,7 @@
 <a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; 2     1     2     3</span></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; 3     2     3     7</span></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 4     2     4     7</span></a></code></pre></div>
-<p><code><a href="../reference/unclean_column_names.html">unclean_column_names()</a></code> help you restore the original, unclean column names – so you leave the data as close as possible to how you found it.</p>
+<p><code><a href="../reference/unclean_column_names.html">unclean_column_names()</a></code> helps you restore the original, unclean column names – so you leave the data as close as possible to how you found it.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/unclean_column_names.html">unclean_column_names</a></span>(result, unclean)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 4 x 3</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; # Groups:   x.x [2]</span></a>
@@ -253,7 +250,7 @@
 <a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">#&gt; 3     2     3     7</span></a>
 <a class="sourceLine" id="cb8-20" data-line-number="20"><span class="co">#&gt; 4     2     4     7</span></a></code></pre></div>
 <ul>
-<li>For one group passed as a symbol, you’ll need to capture it as usual with <code><a href="https://rlang.r-lib.org/reference/nse-defuse.html">rlang::enquo()</a></code>, then clean it with <code><a href="../reference/clean_quo.html">clean_quo()</a></code> and unquote it with either bang bang <code>!!</code> or embrace <code>{{</code>:</li>
+<li>For one group passed as a symbol, you’ll need to capture it with <code><a href="https://rlang.r-lib.org/reference/nse-defuse.html">rlang::enquo()</a></code>, then clean it with <code><a href="../reference/clean_quo.html">clean_quo()</a></code> and unquote it with either bang bang <code>!!</code> or embrace <code>{{</code>:</li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">sum_y &lt;-<span class="st"> </span><span class="cf">function</span>(data, by) {</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">  clean &lt;-<span class="st"> </span><span class="kw"><a href="../reference/clean_column_names.html">clean_column_names</a></span>(data)</a>
@@ -277,7 +274,7 @@
 <a class="sourceLine" id="cb9-20" data-line-number="20"><span class="co">#&gt; 3     2     3     7</span></a>
 <a class="sourceLine" id="cb9-21" data-line-number="21"><span class="co">#&gt; 4     2     4     7</span></a></code></pre></div>
 <ul>
-<li>And for multiple groups passed via <code>...</code>, you’ll need to capture them as usual with <code><a href="https://rlang.r-lib.org/reference/nse-defuse.html">rlang::enquos()</a></code>, then clean them with <code><a href="../reference/clean_quo.html">clean_quo()</a></code> and unquote-splice it with big bang <code>!!!</code>:</li>
+<li>And for multiple groups passed via <code>...</code>, you’ll need to capture them with <code><a href="https://rlang.r-lib.org/reference/nse-defuse.html">rlang::enquos()</a></code>, then clean them with <code><a href="../reference/clean_quos.html">clean_quos()</a></code> and unquote-splice it with big bang <code>!!!</code>:</li>
 </ul>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">sum_y &lt;-<span class="st"> </span><span class="cf">function</span>(data, ...) {</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">  clean &lt;-<span class="st"> </span><span class="kw"><a href="../reference/clean_column_names.html">clean_column_names</a></span>(data)</a>
