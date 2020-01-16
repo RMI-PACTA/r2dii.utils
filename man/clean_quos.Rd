@@ -23,8 +23,8 @@ clean_quos(quos)
 }
 \seealso{
 Other functions to deal with unclean names: 
-\code{\link{clean_names_and_groups}()},
+\code{\link{clean_column_names}()},
 \code{\link{clean_quo}()},
-\code{\link{unclean_names}()}
+\code{\link{unclean_column_names}()}
 }
 \concept{functions to deal with unclean names}
