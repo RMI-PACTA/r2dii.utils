@@ -42,7 +42,7 @@ data \%>\% unclean_column_names(unclean)
 
 Other functions to deal with unclean names: 
 \code{\link{clean_column_names}()},
-\code{\link{clean_quos}()},
-\code{\link{clean_quo}()}
+\code{\link{clean_quo}()},
+\code{\link{quo_chr}()}
 }
 \concept{functions to deal with unclean names}

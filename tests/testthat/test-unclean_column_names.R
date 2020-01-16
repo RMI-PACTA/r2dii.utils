@@ -145,10 +145,10 @@ test_that("unclean_column_names works with one group passes to ...", {
   data <- tibble(x.x = rep(1:2, 2), y.y = 1:4) %>%
     dplyr::arrange(x.x)
 
-  # via clean_quos(enquos(...))
+  # via clean_quo(enquos(...))
   sum_y.y_by_many <- function(data, ...) {
     clean <- clean_column_names(data)
-    dots <- clean_quos(enquos(...))
+    dots <- clean_quo(enquos(...))
 
     out <- clean %>%
       group_by(!!!dots) %>%
@@ -166,4 +166,39 @@ test_that("unclean_column_names with ungrouped data returns ungouped data", {
   unclean <- clean <- tibble(x = 1)
   out <- unclean_column_names(clean, unclean)
   expect_false(dplyr::is_grouped_df(out))
+})
+
+test_that("quo_chr helps check groups passed to named argument or `...`", {
+  f1 <- function(data, by) {
+    clean <- clean_column_names(data)
+    by <- clean_quo(enquo(by))
+    check_crucial_names(clean, c("x_x", quo_chr(by)))
+
+    result <- group_by(clean, !! by)
+
+    unclean_column_names(result, data)
+  }
+
+  expect_equal(
+    f1(tibble(x.x = 1, y.y = 1), x.x),
+    group_by(tibble(x.x = 1, y.y = 1), x.x),
+  )
+
+  f2 <- function(data, ...) {
+    clean <- clean_column_names(data)
+    dots <- clean_quo(enquos(...))
+    check_crucial_names(clean, c("x_x", quo_chr(dots)))
+
+    result <- clean %>%
+      group_by(!!! dots) %>%
+      select(x_x)
+
+    result %>%
+      unclean_column_names(data)
+  }
+
+  expect_equal(
+    f2(tibble(x.x = 1, y.y = 1), x.x, y.y),
+    group_by(tibble(x.x = 1, y.y = 1), y.y),
+  )
 })
