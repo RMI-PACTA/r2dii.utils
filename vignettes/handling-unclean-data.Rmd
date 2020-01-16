@@ -16,9 +16,7 @@ library(rlang)
 library(r2dii.utils)
 ```
 
-Data with unclean column names is difficult to work with. Sooner or later you'll forget if a column you need is typed `LikeThis`, `likeThis`, `Like.This` or `like.This`. 
-
-Luckily, all of those forms can be cleaned in a unique way with `janitor::make_clean_names()`:
+Data with unclean column names is difficult to work with. Sooner or later you'll forget if a column you need is typed `LikeThis`, `likeThis`, `Like.This` or `like.This`. Luckily, all of those forms can be cleaned in a unique way with `janitor::make_clean_names()`:
 
 ```{r}
 unclean <- c(
@@ -33,11 +31,9 @@ unclean %>% map_chr(janitor::make_clean_names)
 
 And now you can work with a clean column name `like_this`. 
 
-Your code will be more maintainable if you always write code for clean names.
+Your code will be more maintainable if you always write code for clean names. But `janitor::clean_names()` seems to lack support for groups, or a way to restore unclean column names and groups so that you clean up after yourself and leave the data as you found it. r2dii.utils has a family of functions dedicated to solving that problem:
 
-But `janitor::clean_names()` seems to lack support for groups, or a way to restore unclean column names and groups so that you clean up after yourself and leave the data as you found it. r2dii.utils has a family of functions dedicated to solving that problem.
-
-* `clean_column_names()` is similar to `janitor::clean_names()`
+* `clean_column_names()` is similar to `janitor::clean_names()`.
 
 ```{r}
 unclean <- tibble(x.x = c(1, 1, 2, 2), y.y = 1:4)
@@ -47,7 +43,7 @@ clean_column_names(unclean)
 janitor::clean_names(unclean)
 ```
 
-But `clean_column_names()` also clean dplyr groups; `janitor::clean_names()` doesn't.
+But `clean_column_names()` also cleans dplyr groups; `janitor::clean_names()` doesn't.
 
 ```{r}
 unclean %>% 
@@ -61,7 +57,7 @@ clean <- unclean %>%
 clean
 ```
 
-Now you can work comfortably with clean column names such as `x_x` and `y_y` instead of `x.x` or `y.y`.
+Now you can work comfortably with clean column names such as `x_x` and `y_y` instead of unclean column names such as `x.x` or `y.y`.
 
 ```{r}
 result <- clean %>% 
@@ -70,7 +66,7 @@ result <- clean %>%
 result
 ```
 
-`unclean_column_names()` help you restore the original, unclean column names -- so you leave the data as close as possible to how you found it.
+`unclean_column_names()` helps you restore the original, unclean column names -- so you leave the data as close as possible to how you found it.
 
 ```{r}
 unclean_column_names(result, unclean)
@@ -95,7 +91,6 @@ sum_y(unclean)
 
 If you functions take groups, you need to clean them too. Here is how:
 
-
 * For one group passed as a string, clean it with `janitor::make_clean_names()`:
 
 ```{r}
@@ -113,11 +108,7 @@ sum_y <- function(data, by) {
 sum_y(unclean, by = "x.x")
 ```
 
-
-
-
-
-* For one group passed as a symbol, you'll need to capture it as usual with `rlang::enquo()`, then clean it with `clean_quo()` and unquote it with either bang bang `!!` or embrace `{{`:
+* For one group passed as a symbol, you'll need to capture it with `rlang::enquo()`, then clean it with `clean_quo()` and unquote it with either bang bang `!!` or embrace `{{`:
 
 ```{r}
 sum_y <- function(data, by) {
@@ -135,7 +126,7 @@ sum_y <- function(data, by) {
 sum_y(unclean, by = x.x)
 ```
 
-* And for multiple groups passed via `...`, you'll need to capture them as usual with `rlang::enquos()`, then clean them with `clean_quo()` and unquote-splice it with big bang `!!!`:
+* And for multiple groups passed via `...`, you'll need to capture them with `rlang::enquos()`, then clean them with `clean_quos()` and unquote-splice it with big bang `!!!`:
 
 ```{r}
 sum_y <- function(data, ...) {
