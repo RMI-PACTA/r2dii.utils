@@ -23,14 +23,14 @@ check_crucial_names <- function(x, expected_names) {
   stopifnot(rlang::is_named(x))
   stopifnot(is.character(expected_names))
 
-  ok <- all(unique(expected_names) %in% names(x))
+  ok <- all(expected_names %in% names(x))
   if (ok) {
     return(invisible(x))
   }
 
-  missing_names <- sort(setdiff(expected_names, names(x)))
   rlang::abort(glue::glue(
-    "The data must have all expected names.
-    Expected but missing: {usethis::ui_field(missing_names)}"
+    "The data must have all expected names:
+    Actual: {usethis::ui_field(sort(names(x)))}
+    Expected: {usethis::ui_field(sort(expected_names))}"
   ))
 }
