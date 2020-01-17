@@ -173,32 +173,33 @@ test_that("quo_chr helps check groups passed to named argument or `...`", {
     clean <- clean_column_names(data)
     by <- clean_quo(enquo(by))
     check_crucial_names(clean, c("x_x", quo_chr(by)))
-
-    result <- group_by(clean, !! by)
-
+    result <- group_by(clean, !!by)
     unclean_column_names(result, data)
   }
 
+  data1 <- tibble(x.x = 1, y.y = 1)
+
   expect_equal(
-    f1(tibble(x.x = 1, y.y = 1), x.x),
-    group_by(tibble(x.x = 1, y.y = 1), x.x),
+    data1 %>% f1(by = x.x),
+    data1 %>% group_by(x.x),
   )
+
+
 
   f2 <- function(data, ...) {
     clean <- clean_column_names(data)
     dots <- clean_quo(enquos(...))
     check_crucial_names(clean, c("x_x", quo_chr(dots)))
-
     result <- clean %>%
-      group_by(!!! dots) %>%
-      select(x_x)
+      group_by(!!!dots)
 
-    result %>%
-      unclean_column_names(data)
+    unclean_column_names(result, data)
   }
 
+  data2 <- tibble(x.x = 1, y.y = 1)
+
   expect_equal(
-    f2(tibble(x.x = 1, y.y = 1), x.x, y.y),
-    group_by(tibble(x.x = 1, y.y = 1), y.y),
+    data2 %>% f2(x.x, y.y),
+    data2 %>% group_by(x.x, y.y)
   )
 })
