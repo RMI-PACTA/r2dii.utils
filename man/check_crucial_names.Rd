@@ -19,13 +19,44 @@ It is based on:
 \url{https://www.rdocumentation.org/packages/fgeo.tool/versions/1.2.5/topics/check_crucial_names}.
 }
 \examples{
-v <- c(name_a = 1)
-check_crucial_names(v, "name_a")
-try(check_crucial_names(v, "name_b"))
+x <- c(a = 1)
+check_crucial_names(x, "a")
+try(check_crucial_names(x, "bad"))
 
-df <- data.frame(name_a = 1)
-check_crucial_names(df, "name_a")
-try(check_crucial_names(df, "name_b"))
+data <- data.frame(a = 1)
+check_crucial_names(data, "a")
+try(check_crucial_names(data, "bad"))
+
+# Applications for the error class "missing_names" ---------------------
+
+  tryCatch(
+    check_crucial_names(x, "bad"),
+    error = function(e) class(e)
+  )
+
+# Wrapping in try() to allow running examples with no failure
+try(
+  # What's interesting is this
+  tryCatch(
+    check_crucial_names(x, "bad"),
+    missing_names = function(e) stop(
+      "A different error message", call. = FALSE
+    )
+  )
+)
+
+# Same
+try(
+  rlang::with_handlers(
+    check_crucial_names(x, "bad"),
+    missing_names = ~ abort("A different error message")
+  )
+)
+
+testthat::expect_error(
+  check_crucial_names(x, "bad"),
+  class = "missing_names"
+)
 }
 \seealso{
 Other miscellaneous utility functions: 
