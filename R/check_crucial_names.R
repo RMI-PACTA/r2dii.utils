@@ -12,25 +12,62 @@
 #' @family miscellaneous utility functions
 #'
 #' @examples
-#' v <- c(name_a = 1)
-#' check_crucial_names(v, "name_a")
-#' try(check_crucial_names(v, "name_b"))
+#' x <- c(a = 1)
+#' check_crucial_names(x, "a")
+#' try(check_crucial_names(x, "bad"))
 #'
-#' df <- data.frame(name_a = 1)
-#' check_crucial_names(df, "name_a")
-#' try(check_crucial_names(df, "name_b"))
+#' data <- data.frame(a = 1)
+#' check_crucial_names(data, "a")
+#' try(check_crucial_names(data, "bad"))
+#'
+#' # Applications for the error class "missing_names" ---------------------
+#'
+#'   tryCatch(
+#'     check_crucial_names(x, "bad"),
+#'     error = function(e) class(e)
+#'   )
+#'
+#' # Wrapping in try() to allow running examples with no failure
+#' try(
+#'   # What's interesting is this
+#'   tryCatch(
+#'     check_crucial_names(x, "bad"),
+#'     missing_names = function(e) stop(
+#'       "A different error message", call. = FALSE
+#'     )
+#'   )
+#' )
+#'
+#' # Same
+#' try(
+#'   rlang::with_handlers(
+#'     check_crucial_names(x, "bad"),
+#'     missing_names = ~ abort("A different error message")
+#'   )
+#' )
+#'
+#' testthat::expect_error(
+#'   check_crucial_names(x, "bad"),
+#'   class = "missing_names"
+#' )
 check_crucial_names <- function(x, expected_names) {
   stopifnot(rlang::is_named(x))
   stopifnot(is.character(expected_names))
 
   ok <- all(unique(expected_names) %in% names(x))
-  if (ok) {
-    return(invisible(x))
+  if (!ok) {
+    abort_missing_names(sort(setdiff(expected_names, names(x))))
   }
 
-  missing_names <- sort(setdiff(expected_names, names(x)))
-  rlang::abort(glue::glue(
-    "The data must have all expected names.
-    Expected but missing: {usethis::ui_field(missing_names)}"
-  ))
+  invisible(x)
+}
+
+abort_missing_names <- function(missing_names) {
+  rlang::abort(
+    "missing_names",
+    message = glue(
+      "Must have missing names:
+    {usethis::ui_field(missing_names)}"
+    )
+  )
 }

@@ -1,5 +1,6 @@
 # r2dii.utils 0.0.0.9003
 
+* `check_crucial_names()` gains class "missing_names".
 * `check_crucial_names()` now errors with message giving (only) missing names.
 
 # r2dii.utils 0.0.0.9002

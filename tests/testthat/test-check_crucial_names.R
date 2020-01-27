@@ -10,15 +10,15 @@ test_that("check_crucial_names with expected names returns `x` invisibly", {
 
 test_that("check_crucial_names with expected names returns `x` invisibly", {
   x <- c(a = 1)
-  expect_error(check_crucial_names(x, "b"), "must have all expected names")
+  expect_error(check_crucial_names(x, "b"), class = "missing_names")
 
   x <- data.frame(a = 1)
-  expect_error(check_crucial_names(x, "b"), "must have all expected names")
+  expect_error(check_crucial_names(x, "b"), class = "missing_names")
 })
 
 test_that("check_crucial_names w/ duplicated expected informs unique", {
   expect_error(
     check_crucial_names(c(x = 1), expected_names = c("x", "z", "a")),
-    "missing.*a.*z"
+    class = "missing_names"
   )
 })
