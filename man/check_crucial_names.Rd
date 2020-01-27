@@ -45,14 +45,6 @@ try(
   )
 )
 
-# Same
-try(
-  rlang::with_handlers(
-    check_crucial_names(x, "bad"),
-    missing_names = ~ abort("A different error message")
-  )
-)
-
 testthat::expect_error(
   check_crucial_names(x, "bad"),
   class = "missing_names"
