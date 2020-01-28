@@ -160,8 +160,8 @@
 <a class="sourceLine" id="cb1-52" data-line-number="52"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="kw"><a href="../reference/clean_column_names.html">clean_column_names</a></span>(bad))</a>
 <a class="sourceLine" id="cb1-53" data-line-number="53"><span class="co">#&gt; [1] "x_x_x"</span></a>
 <a class="sourceLine" id="cb1-54" data-line-number="54"><span class="kw"><a href="https://rdrr.io/r/base/try.html">try</a></span>(<span class="kw">f</span>(bad, x.x.x))</a>
-<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co">#&gt; Error : The data must have all expected names.</span></a>
-<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="co">#&gt; Expected but missing: x_x</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co">#&gt; Error : Must have missing names:</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="co">#&gt; x_x</span></a></code></pre></div>
 <p>If your function takes a single group via a named argument (not <code>...</code>), capture it with <code><a href="https://dplyr.tidyverse.org/reference/tidyeval.html">enquo()</a></code> (not <code><a href="https://dplyr.tidyverse.org/reference/tidyeval.html">enquos()</a></code>) and unquote it with <code>!!</code> or <code>{{</code> (not <code>!!!</code>).</p>
 </div>
 <div id="details" class="section level3">
