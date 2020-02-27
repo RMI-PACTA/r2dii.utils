@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -168,7 +168,7 @@ to <code><a href='default_config.html'>get_config()</a></code>.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># A configuration file stored in the package</span>
 <span class='no'>path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>default_config</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with <span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='input'><span class='fu'>show_config</span>(<span class='no'>path</span>, <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; default:
+#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='input'><span class='fu'>show_config</span>(<span class='no'>path</span>, <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; default:
 #&gt;   Methodology:
 #&gt;     HasBookValue: FALSE # ignore
 #&gt;     HasRISK: TRUE # ignore a flag specifying if the physical risk assessment should be done
@@ -187,9 +187,9 @@ to <code><a href='default_config.html'>get_config()</a></code>.</p></td>
 <span class='kw pkg'>readr</span><span class='kw ns'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_lines.html'>write_lines</a></span>(<span class='no'>config_file</span>, <span class='no'>config_path</span>)
 
 <span class='fu'>show_config</span>(<span class='no'>config_path</span>)</div><div class='output co'>#&gt;   default:
-#&gt;     a_field: a_value</div></span></pre>
+#&gt;     a_field: a_value</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
@@ -208,7 +208,7 @@ to <code><a href='default_config.html'>get_config()</a></code>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>
