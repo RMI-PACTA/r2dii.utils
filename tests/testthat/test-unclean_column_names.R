@@ -168,7 +168,7 @@ test_that("unclean_column_names with ungrouped data returns ungouped data", {
   expect_false(dplyr::is_grouped_df(out))
 })
 
-test_that("quo_chr helps check groups passed to named argument or `...`", {
+test_that("quo_chr helps check groups passed to named argument", {
   f1 <- function(data, by) {
     clean <- clean_column_names(data)
     by <- clean_quo(enquo(by))
@@ -183,9 +183,9 @@ test_that("quo_chr helps check groups passed to named argument or `...`", {
     data1 %>% f1(by = x.x),
     data1 %>% group_by(x.x),
   )
+})
 
-
-
+test_that("quo_chr helps check groups passed to `...`", {
   f2 <- function(data, ...) {
     clean <- clean_column_names(data)
     dots <- clean_quo(enquos(...))
