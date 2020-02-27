@@ -8,6 +8,8 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build
 status](https://travis-ci.org/2DegreesInvesting/r2dii.utils.svg?branch=master)](https://travis-ci.org/2DegreesInvesting/r2dii.utils)
+[![Codecov test
+coverage](https://codecov.io/gh/2degreesinvesting/r2dii.utils/branch/master/graph/badge.svg)](https://codecov.io/gh/2degreesinvesting/r2dii.utils?branch=master)
 <!-- badges: end -->
 
 The goal of r2dii.utils is to provide general utility tools.

@@ -24,18 +24,19 @@ Imports:
     ellipsis,
     fs,
     glue,
+    janitor,
     lifecycle,
+    magrittr,
     purrr,
     readr,
     rlang,
-    usethis,
-    janitor,
-    magrittr
+    usethis
 Suggests: 
+    covr,
     pkgdown,
+    rmarkdown,
     testthat (>= 2.1.0),
-    withr,
-    rmarkdown
+    withr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

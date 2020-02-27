@@ -10,3 +10,4 @@
 ^\.github$
 ^vignettes/articles$
 ^vignettes$
+^codecov\.yml$
