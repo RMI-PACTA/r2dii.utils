@@ -181,7 +181,7 @@ test_that("quo_chr helps check groups passed to named argument", {
 
   expect_equal(
     data1 %>% f1(by = x.x),
-    data1 %>% group_by(x.x),
+    data1 %>% group_by(x.x)
   )
 })
 
