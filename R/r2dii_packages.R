@@ -8,5 +8,7 @@
 #' @examples
 #' r2dii_packages()
 r2dii_packages <- function() {
-  sort(c("r2dii.dataprep", "r2dii.dataraw", "r2dii.utils"))
+  pkgs <- utils::packageDescription("r2dii", fields = "Depends", drop = T)
+  pkgs <- strsplit(pkgs, ",")[[1]]
+  vapply(pkgs, function(x) sub("\n", "", x), character(1), USE.NAMES = FALSE)
 }
