@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Access parameters from a configuration file — FINANCIAL.TIMESTAMP" />
 <meta property="og:description" content="Access parameters from a configuration file" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -222,7 +225,7 @@ field.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Using the default configuration file that comes with the package</span>
 <span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'>
+#&gt; <span class='warning'>You may use your configuration file with <span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'>
 <span class='co'># Using your configuration file</span>
 <span class='no'>path_to_your_config_file</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='default_config.html'>example_config</a></span>(<span class='st'>"config-toy.yml"</span>)
 
@@ -230,8 +233,8 @@ field.</p>
 <span class='fu'>FINANCIAL.TIMESTAMP</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)</div><div class='output co'>#&gt; [1] "2018Q3"</div><div class='input'>
 <span class='co'># The default remains the same</span>
 <span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'><span class='fu'>ALD.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] 201812</div><div class='input'>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'><span class='fu'>ALD.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] 201812</div><div class='input'>
 <span class='co'># Setting the path to your configuration file globally</span>
 <span class='no'>old_options</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='kw'>r2dii_config</span> <span class='kw'>=</span> <span class='no'>path_to_your_config_file</span>)
 <span class='co'># The default configuration file has now changed</span>
@@ -239,62 +242,57 @@ field.</p>
 <span class='co'># Reset options to cleanup</span>
 <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='no'>old_options</span>)
 <span class='fu'>timestamps_datastore_export</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "ASK-MAURO"</div><div class='input'><span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'><span class='fu'>DATASTORE.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "ASK-MAURO"</div><div class='input'><span class='fu'>DATAPREP.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "mauroexplores"</div><div class='input'><span class='fu'>START.YEAR</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] 2019</div><div class='input'><span class='fu'>TIME.HORIZON</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] 5</div><div class='input'><span class='fu'>RISK.YEAR</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] 2020</div><div class='input'><span class='fu'>ADDITIONAL.YEAR</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] 2040</div><div class='input'><span class='fu'>TECH.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt;  [1] "Electric"      "Hybrid"        "ICE"           "GasCap"       
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "ASK-MAURO"</div><div class='input'><span class='fu'>FINANCIAL.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "DONT-DELETE"</div><div class='input'><span class='fu'>DATASTORE.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "ASK-MAURO"</div><div class='input'><span class='fu'>DATAPREP.TIMESTAMP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "mauroexplores"</div><div class='input'><span class='fu'>START.YEAR</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] 2019</div><div class='input'><span class='fu'>TIME.HORIZON</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] 5</div><div class='input'><span class='fu'>RISK.YEAR</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] 2020</div><div class='input'><span class='fu'>ADDITIONAL.YEAR</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] 2040</div><div class='input'><span class='fu'>TECH.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt;  [1] "Electric"      "Hybrid"        "ICE"           "GasCap"       
 #&gt;  [5] "CoalCap"       "OilCap"        "RenewablesCap" "HydroCap"     
 #&gt;  [9] "NuclearCap"    "Coal"          "Oil"           "Gas"          </div><div class='input'><span class='fu'>TECH.EXCLUDE</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt;  [1] "FuelCell"                           "Fuel cell"                         
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt;  [1] "FuelCell"                           "Fuel cell"                         
 #&gt;  [3] "OtherCap"                           "OtherFF"                           
 #&gt;  [5] "Bof Shop"                           "Coking Plant"                      
 #&gt;  [7] "Sintering Plant"                    "Direct Or Smelting Reduction Plant"
 #&gt;  [9] "Pelletizing Plant"                  "Open Hearth Meltshop"              </div><div class='input'><span class='fu'>SECTOR.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "Automotive"   "Power"        "Fossil Fuels" "Oil&amp;Gas"      "Coal"        </div><div class='input'><span class='fu'>OTHER.SECTOR.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "Shipping" "Steel"    "Aviation" "Cement"  </div><div class='input'><span class='fu'>SCENARIO.SOURCES.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "GP_ER_2015" "ETP2017"    "BNEF2017"   "WEO2018"    "SBTI"      </div><div class='input'><span class='fu'>IEA.SCENARIO.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>WEB.REGION.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "Global"           "OECD"             "NonOECD"          "NorthAmerica"    
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "Automotive"   "Power"        "Fossil Fuels" "Oil&amp;Gas"      "Coal"        </div><div class='input'><span class='fu'>OTHER.SECTOR.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "Shipping" "Steel"    "Aviation" "Cement"  </div><div class='input'><span class='fu'>SCENARIO.SOURCES.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "GP_ER_2015" "ETP2017"    "BNEF2017"   "WEO2018"    "SBTI"      </div><div class='input'><span class='fu'>IEA.SCENARIO.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>WEB.REGION.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "Global"           "OECD"             "NonOECD"          "NorthAmerica"    
 #&gt; [5] "Europe"           "AsiaPacific"      "OECDNorthAmerica"</div><div class='input'><span class='fu'>SCENARIO.GEOGRAPHIES.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "GlobalAggregate" "Global"          "NonOECD"         "OECD"           
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "GlobalAggregate" "Global"          "NonOECD"         "OECD"           
 #&gt; [5] "Europe"          "NorthAmerica"   </div><div class='input'><span class='fu'>EQUITY.MARKET.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "Global"</div><div class='input'><span class='fu'>GLOBAL.AGGREGATE.SECTOR.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "Power"</div><div class='input'><span class='fu'>GLOBAL.AGGREGATE.SCENARIO.SOURCES.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] "WEO2018" "ETP2017"</div><div class='input'><span class='fu'>CREATE.META.PORTFOLIO</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>META.INVESTOR.NAME</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>META.PORTFOLIO.NAME</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>HasBV</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>HasRISK</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>HasMAP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>HasSB</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
-#&gt; <span class='warning'>You may use your configuration file with `options(r2dii_config = 'path/to/config.yml')`</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "Global"</div><div class='input'><span class='fu'>GLOBAL.AGGREGATE.SECTOR.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "Power"</div><div class='input'><span class='fu'>GLOBAL.AGGREGATE.SCENARIO.SOURCES.LIST</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] "WEO2018" "ETP2017"</div><div class='input'><span class='fu'>CREATE.META.PORTFOLIO</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>META.INVESTOR.NAME</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>META.PORTFOLIO.NAME</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='fu'>HasBV</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>HasRISK</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>HasMAP</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>HasSB</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Using a toy configuration file.</span>
+#&gt; <span class='warning'>You may use your configuration file with </span><span style='color: #555555;'>`options(r2dii_config = 'path/to/config.yml')`</span><span></span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
   default:
     ComparisonBenchmarks:
       CreateMetaPortfolio: a_value
-"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/RtmpC58zjN/config-37f346245ace.yml'.</div><div class='input'><span class='fu'>inc_metaportfolio</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
+"</span>)</div><div class='output co'>#&gt; </span><span style='color: #00BB00;'>✔</span><span> Saved to </span><span style='color: #0000BB;'>'/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpRJGAaT/config-6a848e6d3e9.yml'</span><span>.</div><div class='input'><span class='fu'>inc_metaportfolio</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
   default:
     ComparisonBenchmarks:
       CreateProjectMetaPortfolio: a_value
-"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/RtmpC58zjN/config-37f37766fe6c.yml'.</div><div class='input'><span class='fu'>inc_project_metaportfolio</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
+"</span>)</div><div class='output co'>#&gt; </span><span style='color: #00BB00;'>✔</span><span> Saved to </span><span style='color: #0000BB;'>'/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpRJGAaT/config-6a82a628b63.yml'</span><span>.</div><div class='input'><span class='fu'>inc_project_metaportfolio</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div><div class='input'><span class='no'>config</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_config.html'>create_config</a></span>(<span class='st'>"
   default:
     Lists:
       AssetTypes: a_value
-"</span>)</div><div class='output co'>#&gt; ✔ Saved to '/tmp/RtmpC58zjN/config-37f371768e20.yml'.</div><div class='input'><span class='fu'>allowable_asset_list</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div></pre>
+"</span>)</div><div class='output co'>#&gt; </span><span style='color: #00BB00;'>✔</span><span> Saved to </span><span style='color: #0000BB;'>'/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpRJGAaT/config-6a82bad2652.yml'</span><span>.</div><div class='input'><span class='fu'>allowable_asset_list</span>(<span class='no'>config</span>)</div><div class='output co'>#&gt; [1] "a_value"</div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -305,7 +303,7 @@ field.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
 </div>
 
       </footer>
