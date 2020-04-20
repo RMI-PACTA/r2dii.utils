@@ -30,7 +30,8 @@ Imports:
     purrr,
     readr,
     rlang,
-    usethis
+    usethis,
+    utils
 Suggests: 
     covr,
     pkgdown,
