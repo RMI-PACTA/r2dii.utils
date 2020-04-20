@@ -180,18 +180,21 @@ https://www.rdocumentation.org/packages/fgeo.tool/versions/1.2.5/topics/check_cr
 #&gt; </span><span style='color: #00BB00;'>bad</span><span></div><div class='input'>
 <span class='co'># Applications for the error class "missing_names" ---------------------</span>
 
-  <span class='fu'><a href='https://rdrr.io/r/base/conditions.html'>tryCatch</a></span>(
-    <span class='fu'>check_crucial_names</span>(<span class='no'>x</span>, <span class='st'>"bad"</span>),
-    <span class='kw'>error</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) <span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>e</span>)
-  )</div><div class='output co'>#&gt; [1] "missing_names" "rlang_error"   "error"         "condition"    </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/conditions.html'>tryCatch</a></span>(
+  <span class='fu'>check_crucial_names</span>(<span class='no'>x</span>, <span class='st'>"bad"</span>),
+  <span class='kw'>error</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) <span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>e</span>)
+)</div><div class='output co'>#&gt; [1] "missing_names" "rlang_error"   "error"         "condition"    </div><div class='input'>
 <span class='co'># Wrapping in try() to allow running examples with no failure</span>
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(
   <span class='co'># What's interesting is this</span>
   <span class='fu'><a href='https://rdrr.io/r/base/conditions.html'>tryCatch</a></span>(
     <span class='fu'>check_crucial_names</span>(<span class='no'>x</span>, <span class='st'>"bad"</span>),
-    <span class='kw'>missing_names</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) <span class='fu'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span>(
-      <span class='st'>"A different error message"</span>, <span class='kw'>call.</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-    )
+    <span class='kw'>missing_names</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>e</span>) {
+      <span class='fu'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span>(
+        <span class='st'>"A different error message"</span>,
+        <span class='kw'>call.</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+      )
+    }
   )
 )</div><div class='output co'>#&gt; Error : A different error message</div><div class='input'>
 <span class='kw pkg'>testthat</span><span class='kw ns'>::</span><span class='fu'><a href='https://testthat.r-lib.org/reference/expect_error.html'>expect_error</a></span>(
