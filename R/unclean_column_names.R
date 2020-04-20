@@ -17,6 +17,8 @@
 #' # Cleans names but not groups
 #' janitor::clean_names(group_by(tibble(x.x = 1), x.x))
 clean_column_names <- function(data) {
+  # clean_groups() is needless with dplyr >= 0.8.99.9002
+  # https://gist.github.com/maurolepore/6558292c5003a15e246a88091c307b65
   clean_groups(janitor::clean_names(data))
 }
 
