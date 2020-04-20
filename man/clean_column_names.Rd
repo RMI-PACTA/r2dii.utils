@@ -7,21 +7,19 @@
 clean_column_names(data)
 }
 \arguments{
-\item{data}{A dataframe}
+\item{data}{A data frame}
 }
 \value{
-A dataframe
+A data frame
 }
 \description{
-A version of \code{\link[janitor:clean_names]{janitor::clean_names()}} that also cleans dplyr groups
+With dplyr >= 0.8.99.9002 \code{janitor::clean_names()} seems to also clean groups
+(\href{https://gist.github.com/maurolepore/6558292c5003a15e246a88091c307b65}{gist}).
 }
 \examples{
 library(dplyr)
 
 clean_column_names(group_by(tibble(x.x = 1), x.x))
-
-# Cleans names but not groups
-janitor::clean_names(group_by(tibble(x.x = 1), x.x))
 }
 \seealso{
 \code{\link[janitor:clean_names]{janitor::clean_names()}}, \code{\link[=unclean_column_names]{unclean_column_names()}}.

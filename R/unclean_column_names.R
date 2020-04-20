@@ -1,21 +1,21 @@
 #' A version of [janitor::clean_names()] that also cleans dplyr groups
 #'
-#' @param data A dataframe
+#' With dplyr >= 0.8.99.9002 `janitor::clean_names()` seems to also clean groups
+#' ([gist](https://gist.github.com/maurolepore/6558292c5003a15e246a88091c307b65)).
+#'
+#' @param data A data frame
 #'
 #' @family functions to deal with unclean names
 #'
 #' @seealso [janitor::clean_names()], [unclean_column_names()].
 #'
-#' @return A dataframe
+#' @return A data frame
 #' @export
 #'
 #' @examples
 #' library(dplyr)
 #'
 #' clean_column_names(group_by(tibble(x.x = 1), x.x))
-#'
-#' # Cleans names but not groups
-#' janitor::clean_names(group_by(tibble(x.x = 1), x.x))
 clean_column_names <- function(data) {
   # clean_groups() is needless with dplyr >= 0.8.99.9002
   # https://gist.github.com/maurolepore/6558292c5003a15e246a88091c307b65
@@ -24,8 +24,8 @@ clean_column_names <- function(data) {
 
 #' Revert the effect of `clean_column_names()`
 #'
-#' @param data A dataframe
-#' @param unclean A dataframe, commonly a version of `data` before running
+#' @param data A data frame
+#' @param unclean A data frame, commonly a version of `data` before running
 #'   `janitor::clean_names(data)`.
 #'
 #' @seealso [janitor::clean_names()], [clean_column_names()].

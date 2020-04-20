@@ -7,9 +7,9 @@
 unclean_column_names(data, unclean)
 }
 \arguments{
-\item{data}{A dataframe}
+\item{data}{A data frame}
 
-\item{unclean}{A dataframe, commonly a version of \code{data} before running
+\item{unclean}{A data frame, commonly a version of \code{data} before running
 \code{janitor::clean_names(data)}.}
 }
 \description{
