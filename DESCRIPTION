@@ -24,19 +24,22 @@ Imports:
     ellipsis,
     fs,
     glue,
-    janitor,
+    janitor (>= 2.0.1.9000),
     lifecycle,
     magrittr,
     purrr,
     readr,
     rlang,
-    usethis
+    usethis,
+    utils
 Suggests: 
     covr,
     pkgdown,
     rmarkdown,
     testthat (>= 2.1.0),
     withr
+Remotes: 
+    sfirke/janitor
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

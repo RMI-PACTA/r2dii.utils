@@ -1,6 +1,6 @@
 library(dplyr)
 
-test_that("unclean_column_names reverses the effect of janitor::clean_names", {
+test_that("reverses the effect of janitor::clean_names", {
   data <- tibble(x.x = 1, y = 1, z.z = 1)
   expect_equal(
     unclean_column_names(janitor::clean_names(data), data),
@@ -8,7 +8,15 @@ test_that("unclean_column_names reverses the effect of janitor::clean_names", {
   )
 })
 
-test_that("unclean_column_names works with more complex clean data", {
+test_that("reverses the effect of clean_column_names", {
+  data <- tibble(x.x = 1, y = 1, z.z = 1)
+  expect_equal(
+    unclean_column_names(clean_column_names(data), data),
+    data
+  )
+})
+
+test_that("works with more complex clean data", {
   unclean <- tibble(x.x = 1, y = 1, z.z = 1)
   clean <- janitor::clean_names(unclean) %>%
     rename(z = z_z, y.y = y) %>%
@@ -20,13 +28,13 @@ test_that("unclean_column_names works with more complex clean data", {
       x.x = 1, # restored from unclean
       # shouldn't change because it didn't exist in unclean
       y.y = 1,
-      new = 1,
       z = 1,
+      new = 1,
     )
   )
 })
 
-test_that("unclean_column_names reflects ungrouping of data", {
+test_that("reflects ungrouping of data", {
   unclean <- dplyr::group_by(tibble(x.x = 1, y.y = 1, z.z = 1), x.x, y.y)
   data <- unclean %>%
     clean_column_names() %>%
@@ -35,7 +43,7 @@ test_that("unclean_column_names reflects ungrouping of data", {
   expect_false(dplyr::is_grouped_df(out))
 })
 
-test_that("unclean_column_names reflects ungrouping of some but not all variables", {
+test_that("reflects ungrouping of some but not all variables", {
   unclean <- dplyr::group_by(tibble(x.x = 1, y.y = 1, z.z = 1), x.x, y.y)
   data <- unclean %>%
     clean_column_names() %>%
@@ -45,7 +53,7 @@ test_that("unclean_column_names reflects ungrouping of some but not all variable
   expect_equal(dplyr::group_vars(out), "x.x")
 })
 
-test_that("unclean_column_names preserves groups behaviour of dplyr::select", {
+test_that("preserves groups behaviour of dplyr::select", {
   unclean <- dplyr::group_by(tibble(x.x = 1, y.y = 1, z.z = 1), x.x, y.y)
   data <- unclean %>%
     clean_column_names() %>%
@@ -56,26 +64,12 @@ test_that("unclean_column_names preserves groups behaviour of dplyr::select", {
   expect_equal(dplyr::group_vars(out), dplyr::group_vars(unclean))
 })
 
-test_that("unclean_column_names with grouped data returns unclean grouped data", {
+test_that("with grouped data returns unclean grouped data", {
   unclean <- dplyr::group_by(tibble(x.x = 1, y.y = 1, y = 1), x.x, y)
   data <- clean_column_names(unclean)
   out <- unclean_column_names(data, unclean)
   expect_equal(names(out), names(unclean))
   expect_equal(dplyr::group_vars(out), dplyr::group_vars(unclean))
-})
-
-test_that("unclean_column_names errors if groups and names don't match", {
-  unclean <- group_by(tibble(x.x = 1, y.y = 1, z.z = 1), x.x, y.y)
-
-  # Leave data in bad shape
-  clean <- janitor::clean_names(unclean)
-  expect_named(clean, c("x_x", "y_y", "z_z"))
-  expect_equal(dplyr::group_vars(clean), c("x.x", "y.y"))
-
-  expect_error(
-    unclean_column_names(clean, unclean),
-    "must be known.*x.x"
-  )
 })
 
 test_that("clean_column_names cleans names and groups", {
@@ -86,25 +80,16 @@ test_that("clean_column_names cleans names and groups", {
   expect_equal(dplyr::group_vars(out), "x_x")
 })
 
-test_that("unclean_column_names works with one group passes to an argument", {
+test_that("works with one group passed to an argument", {
   data <- tibble(x.x = rep(1:2, 2), y.y = x.x) %>%
     dplyr::arrange(x.x)
 
-  expect <- structure(
-    list(
-      x.x = c(1L, 1L, 2L, 2L),
-      y.y = c(1L, 1L, 2L, 2L),
-      z = c(2L, 2L, 4L, 4L)
-    ),
-    class = c("grouped_df", "tbl_df", "tbl", "data.frame"),
-    row.names = c(NA, -4L),
-    groups = structure(
-      list(y.y = 1:2, .rows = list(1:2, 3:4)),
-      row.names = c(NA, -2L),
-      class = c("tbl_df", "tbl", "data.frame"),
-      .drop = TRUE
-    )
-  )
+  expect <- tibble(
+    x.x = c(1L, 1L, 2L, 2L),
+    y.y = c(1L, 1L, 2L, 2L),
+    z = c(2L, 2L, 4L, 4L)
+  ) %>%
+    dplyr::group_by(y.y)
 
 
 
@@ -120,10 +105,11 @@ test_that("unclean_column_names works with one group passes to an argument", {
     unclean_column_names(out, data)
   }
 
-  expect_error(actual <- sum_y.y_by_one_chr(data, by = "y.y"), NA)
+  expect_error(
+    actual <- sum_y.y_by_one_chr(data, by = "y.y"),
+    NA
+  )
   expect_equal(actual, expect)
-
-
 
   # via !!clean_quo
   sum_y.y_by_one_unquoted <- function(data, by) {
@@ -141,7 +127,7 @@ test_that("unclean_column_names works with one group passes to an argument", {
   expect_equal(actual, expect)
 })
 
-test_that("unclean_column_names works with one group passes to ...", {
+test_that("works with one group passes to ...", {
   data <- tibble(x.x = rep(1:2, 2), y.y = 1:4) %>%
     dplyr::arrange(x.x)
 
@@ -162,7 +148,7 @@ test_that("unclean_column_names works with one group passes to ...", {
   expect_equal(group_vars(out), c("x.x", "y.y"))
 })
 
-test_that("unclean_column_names with ungrouped data returns ungouped data", {
+test_that("with ungrouped data returns ungouped data", {
   unclean <- clean <- tibble(x = 1)
   out <- unclean_column_names(clean, unclean)
   expect_false(dplyr::is_grouped_df(out))

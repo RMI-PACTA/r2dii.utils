@@ -15,9 +15,7 @@ Return a vector giving the name of r2dii packages
 \examples{
 # The r2dii package must be installed
 # See https://2degreesinvesting.github.io/r2dii/#installation
-if (requireNamespace("r2dii")) {
-  r2dii_packages()
-}
+try(r2dii_packages())
 }
 \seealso{
 Other miscellaneous utility functions: 

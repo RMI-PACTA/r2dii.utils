@@ -8,11 +8,12 @@
 #' @examples
 #' # The r2dii package must be installed
 #' # See https://2degreesinvesting.github.io/r2dii/#installation
-#' if (requireNamespace("r2dii")) {
-#'   r2dii_packages()
-#' }
+#' try(r2dii_packages())
 r2dii_packages <- function() {
-  if (!requireNamespace("r2dii")) {
+  # requireNamespace("r2dii") throws WARNING in R CMD check
+  # Suggesting r2dii would create a circular dependency
+  uses_r2dii <- any(grepl("^r2dii$", rownames(utils::installed.packages())))
+  if (!uses_r2dii) {
     abort(
       glue(
         "The r2dii package must be installed. Install it from GitHub with:
@@ -21,7 +22,8 @@ r2dii_packages <- function() {
       )
     )
   }
-  pkgs <- utils::packageDescription("r2dii", fields = "Depends", drop = T)
+
+  pkgs <- utils::packageDescription("r2dii", fields = "Depends", drop = TRUE)
   pkgs <- strsplit(pkgs, ",")[[1]]
   vapply(pkgs, function(x) sub("\n", "", x), character(1), USE.NAMES = FALSE)
 }
