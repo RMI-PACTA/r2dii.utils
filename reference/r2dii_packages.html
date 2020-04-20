@@ -158,9 +158,9 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># The r2dii package must be installed</span>
 <span class='co'># See https://2degreesinvesting.github.io/r2dii/#installation</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"r2dii"</span>)) {
-  <span class='fu'>r2dii_packages</span>()
-}</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: r2dii</span></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>r2dii_packages</span>())</div><div class='output co'>#&gt; Error : The r2dii package must be installed. Install it from GitHub with:
+#&gt; # install.packages('remotes')
+#&gt; remotes::install_github('2degreesinvesting/r2dii')</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
