@@ -22,19 +22,22 @@
 #'
 #' # Applications for the error class "missing_names" ---------------------
 #'
-#'   tryCatch(
-#'     check_crucial_names(x, "bad"),
-#'     error = function(e) class(e)
-#'   )
+#' tryCatch(
+#'   check_crucial_names(x, "bad"),
+#'   error = function(e) class(e)
+#' )
 #'
 #' # Wrapping in try() to allow running examples with no failure
 #' try(
 #'   # What's interesting is this
 #'   tryCatch(
 #'     check_crucial_names(x, "bad"),
-#'     missing_names = function(e) stop(
-#'       "A different error message", call. = FALSE
-#'     )
+#'     missing_names = function(e) {
+#'       stop(
+#'         "A different error message",
+#'         call. = FALSE
+#'       )
+#'     }
 #'   )
 #' )
 #'
