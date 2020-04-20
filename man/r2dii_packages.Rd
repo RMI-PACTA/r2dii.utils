@@ -13,7 +13,11 @@ String. A vector giving the name of r2dii packages
 Return a vector giving the name of r2dii packages
 }
 \examples{
-r2dii_packages()
+# The r2dii package must be installed
+# See https://2degreesinvesting.github.io/r2dii/#installation
+if (requireNamespace("r2dii")) {
+  r2dii_packages()
+}
 }
 \seealso{
 Other miscellaneous utility functions: 
