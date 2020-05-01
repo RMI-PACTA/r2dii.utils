@@ -24,6 +24,5 @@ r2dii_packages <- function() {
   }
 
   pkgs <- utils::packageDescription("r2dii", fields = "Depends", drop = TRUE)
-  pkgs <- strsplit(pkgs, ",")[[1]]
-  vapply(pkgs, function(x) sub("\n", "", x), character(1), USE.NAMES = FALSE)
+  strsplit(pkgs, ", ")[[1]]
 }
