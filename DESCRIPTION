@@ -12,7 +12,7 @@ Authors@R:
              email = "contact@2degrees-investing.org"))
 Description: General utility tools. For more information visit
     <https://2degrees-investing.org/>.
-License: GPL-3 + file LICENSE
+License: MIT + file LICENSE
 URL: https://github.com/2DegreesInvesting/r2dii.utils
 BugReports: 
     https://github.com/2DegreesInvesting/r2dii.utils/issues
