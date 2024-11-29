@@ -24,7 +24,7 @@ Imports:
     ellipsis,
     fs,
     glue,
-    janitor (>= 2.0.1.9000),
+    janitor (>= 2.1.0),
     lifecycle,
     magrittr,
     purrr,
@@ -38,8 +38,6 @@ Suggests:
     rmarkdown,
     testthat (>= 2.1.0),
     withr
-Remotes: 
-    sfirke/janitor
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
